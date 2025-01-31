@@ -1,0 +1,481 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Change to a cleaner font */
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Set background to black */
+    color: #fff; /* Set default text color to white */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    transition: background-color 0.5s ease; /* Smooth transition for background color */
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+header {
+    background: transparent; /* Ensure the background is transparent */
+    box-shadow: none; /* Remove shadow */
+    padding: 20px;
+    text-align: left; /* Left-align the header content */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Space between logo/title and navigation */
+    align-items: center; /* Center items vertically */
+    background: transparent; /* Ensure nav background is transparent */
+}
+
+nav a {
+    display: flex; /* Use flexbox for logo and title */
+    align-items: center; /* Center items vertically */
+    text-decoration: none; /* Remove underline */
+}
+
+nav h1 {
+    color: transparent; /* Make text transparent to show gradient */
+    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient effect */
+    -webkit-background-clip: text; /* Clip background to text */
+    font-size: 3em; /* Adjust title size */
+    margin: 0 10px; /* Add margin for spacing */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Right-align the navigation items */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none; /* Remove underline */
+    color: black; /* Set text color to black */
+    font-weight: bold; /* Make the text bold */
+    font-size: 1.2em; /* Increase size of navigation links */
+    padding: 10px 20px; /* Add padding for bubble effect */
+    border-radius: 50px; /* Make the button circular */
+    background-color: white; /* Light background for buttons */
+    transition: background-color 0.3s, transform 0.3s; /* Transition for hover effect */
+}
+
+nav a:hover {
+    background-color: rgba(173, 216, 230, 0.5); /* Change background on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.hero {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    color: white; /* Set text color to white */
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(68, 68, 68, 0.8)); /* Gradient from black to dark grey */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the background image */
+    padding: 40px; /* Adjust padding as needed */
+}
+
+.hero h1 {
+    font-size: 4em; /* Increase size for prominence */
+    margin: 0; /* Remove default margins */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+}
+
+.hero p {
+    font-size: 1.5em; /* Adjust size as needed */
+    margin: 0; /* Remove margin to position it closer to the title */
+    font-weight: 300; /* Lighten the font weight for the tagline */
+    color: white; /* Ensure subtitle is white */
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px; /* Space above the button */
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient background */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; /* Rounded button */
+    font-size: 1.2em;
+    transition: background 0.3s, transform 0.3s; /* Transition for hover effect */
+}
+
+.cta-button:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+section {
+    padding: 60px 20px;
+    margin: 20px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1); /* Light background for sections */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in effect for sections */
+}
+
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.feature-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.features {
+    padding: 60px 20px;
+    background: linear-gradient(90deg, #333, #444); /* Gradient from darker grey to a slightly lighter grey */
+    color: white; /* Set text color to white for better contrast */
+    transition: background 0.5s ease; /* Smooth transition effect */
+}
+
+.features-heading {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Apple font */
+    font-size: 3em; /* Increase size */
+    color: white; /* Set color to white */
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: center; /* Center the heading */
+}
+
+.feature-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px; /* Space between feature rows */
+    justify-content: center; /* Center items horizontally */
+}
+
+.feature {
+    flex: 1; /* Allow the feature to take full width */
+    margin-right: 20px; /* Space between feature text and iPad */
+    color: white; /* Set text color to white */
+    font-size: 1.5em; /* Decrease font size for better layout */
+}
+
+.feature h3, .feature p {
+    margin: 0; /* Remove default margins */
+    color: white; /* Set text color to white */
+    font-size: 1.5em; /* Adjust font size as needed */
+    opacity: 1; /* Ensure text is visible */
+    transform: translateY(0); /* Reset transform */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.ipad-container {
+    margin-left: 20px; /* Space between feature text and iPad */
+    margin-right: 20px; /* Space on the right for balance */
+}
+
+.feature i {
+    font-size: 2.5em; /* Increase icon size */
+    color: #007bff; /* Icon color */
+}
+
+/* Placeholder for the graphic */
+.graphic-container {
+    display: flex;
+    justify-content: center; /* Center the graphic */
+    align-items: center; /* Center vertically */
+    margin-left: 20px; /* Space between features and graphic */
+}
+
+.graphic {
+    width: 400px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    /* Add any additional styles for the graphic */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Dark footer */
+    color: white;
+}
+
+footer p {
+    margin: 0; /* Remove margin */
+}
+
+footer a {
+    color: white; /* Set footer link color to white */
+    text-decoration: none; /* Remove underline */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.phone-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Center items vertically */
+    padding: 40px; /* Add padding around the container */
+    margin-bottom: 20px; /* Reduce space below the iPad */
+}
+
+.text-content {
+    max-width: 50%; /* Limit the width of the text content */
+    padding-right: 20px; /* Add some space between text and iPad */
+    text-align: left; /* Align text to the left */
+}
+
+.text-content h2 {
+    font-size: 3em; /* Increase the size of the main heading */
+    margin-bottom: 20px; /* Add space below the heading */
+    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient effect */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+}
+
+.text-content p {
+    font-size: 1.5em; /* Increase the size of the paragraphs */
+    line-height: 1.5; /* Improve readability with line height */
+    margin-bottom: 15px; /* Add space between paragraphs */
+}
+
+.phone {
+    width: 400px; /* Adjust width of the iPad mockup */
+    height: 600px; /* Adjust height of the iPad mockup */
+    border: 16px solid #000; /* Black border for the iPad */
+    border-radius: 20px; /* Rounded corners for iPad */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
+    background: white; /* White background for the iPad */
+}
+
+/* Adjust notch effect if needed */
+.phone::before {
+    content: '';
+    position: absolute;
+    top: -16px; /* Position it above the iPad */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Width of the notch */
+    height: 20px; /* Height of the notch */
+    background: white; /* Color of the notch */
+    border-radius: 10px; /* Rounded corners for the notch */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for the notch */
+}
+
+.app-screenshot {
+    width: 100%; /* Ensure it takes the full width of the phone */
+    height: 100%; /* Set height to fill the phone */
+    object-fit: cover; /* Cover the area of the phone */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between logo and name */
+    border-radius: 0; /* Ensure no border radius */
+    background: none; /* Ensure no background */
+}
+
+.intro {
+    text-align: center; /* Center the text */
+    padding: 40px 20px;
+    color: black; /* Change text color to black */
+    max-width: 800px; /* Set a maximum width for the text */
+    margin: 0 auto; /* Center the section */
+}
+
+.intro-header {
+    display: flex;
+    justify-content: center; /* Center the logo and title */
+    align-items: center; /* Align items vertically */
+}
+
+.intro h1 {
+    margin-left: 10px; /* Space between logo and title */
+    color: black; /* Set title color to black */
+}
+
+.intro-tagline {
+    font-size: 1.5em; /* Adjust size as needed */
+    margin: 10px 0; /* Add spacing */
+}
+
+.intro-description,
+.intro-details {
+    font-size: 1.2em; /* Adjust size as needed */
+    margin: 10px 0; /* Add spacing */
+}
+
+.intro-tagline,
+.intro-description,
+.intro-details {
+    color: black; /* Ensure these texts are black */
+}
+
+#download {
+    text-align: center; /* Center the text */
+    padding: 40px 20px;
+    color: black; /* Change text color to black */
+}
+
+#features h2,
+#download h2,
+nav ul li a {
+    color: black; /* Set text color to black */
+}
+
+nav ul li a {
+    color: black; /* Set text color to black for header links */
+}
+
+#contact {
+    padding: 40px 20px;
+    background: rgba(173, 216, 230, 0.5); /* Light blue background for contact section */
+    border-radius: 10px; /* Rounded corners */
+    margin: 20px; /* Margin around the section */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+    max-width: 600px; /* Limit width of the form */
+    margin: 0 auto; /* Center the form */
+}
+
+.contact-form div {
+    margin-bottom: 15px; /* Space between form elements */
+}
+
+.contact-form label {
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Make labels bold */
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 5px; /* Rounded corners for inputs */
+    width: 100%; /* Full width */
+}
+
+.contact-form button {
+    padding: 10px; /* Padding for button */
+    background: #28a745; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s; /* Transition for hover effect */
+}
+
+.contact-form button:hover {
+    background: #218838; /* Darker green on hover */
+}
+
+.download-image {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Space above the image */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 50px; /* Make the image circular */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.download-image:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+h2, h3 {
+    color: #fff; /* Set headings to white */
+}
+
+p {
+    color: #ddd; /* Set paragraph text to a lighter shade */
+}
+
+/* Animation for fading in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ipad {
+    width: 300px; /* Increase width for a larger iPad */
+    height: 400px; /* Set a height for the iPad */
+    border: 16px solid #000; /* iPad border */
+    border-radius: 20px; /* Rounded corners for iPad */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
+    background: white; /* White background for the iPad */
+}
+
+.new-title {
+    color: transparent; /* Make text transparent to show gradient */
+    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient effect */
+    -webkit-background-clip: text; /* Clip background to text */
+    font-size: 3em; /* Adjust title size */
+    margin: 0 10px; /* Add margin for spacing */
+}
+
+/* Styles for the iPad in the Features Section */
+.feature-container .ipad {
+    width: 600px; /* Increase width for better visibility */
+    height: 800px; /* Increase height for better visibility */
+    border: 16px solid lightgrey; /* Change to light grey or any other color */
+    border-radius: 20px; /* Rounded corners for the iPad */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
+    background: white; /* White background for the iPad */
+}
+
+/* Styles for the iPad in the Hero Section */
+.phone {
+    width: 400px; /* Adjust width of the iPad mockup */
+    height: 600px; /* Adjust height of the iPad mockup */
+    border: 16px solid #000; /* Black border for the iPad */
+    border-radius: 20px; /* Rounded corners for iPad */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
+    background: white; /* White background for the iPad */
+} 
