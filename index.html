@@ -6,6 +6,7 @@
     <title>HPmadeeasy</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,27 +17,33 @@
             </a>
             <ul>
                 <li><a href="#features">Features</a></li>
-                <li><a href="download.html">Download</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     
     <section class="hero">
-        <h1>Welcome to H&P Made Easy</h1>
+        <h1><span class="handwritten">Welcome to H&P Made Easy</span></h1>
         <p>Your clinical assistant for streamlined patient history-taking.</p>
         <a href="#features" class="cta-button">Get Started</a>
     </section>
 
     <section class="phone-container">
         <div class="text-content">
-            <h2>Welcome to H&P Made Easy</h2>
-            <p>Streamline patient history-taking with this innovative app designed to help you gather accurate and comprehensive clinical data. Featuring a unique Chief Complaint Panel, the app offers tailored question prompts for hundreds of complaints across various specialties. Can't find your chief complaint? No problem—use our AI Question Generator to create relevant questions instantly.</p>
-            <p>Enhance your clinical workflow with the AI Physical Exam Assistant and Diagnostic Tools, which guide you through focused exams and offer a structured approach to managing patients based on your differential diagnosis. Empower your clinical decision-making and take your medical training to the next level!</p>
+            <h2>By Medical Students,<br> <span class="centered">For Medical Students</span></h2>
+            <p>Streamline patient history-taking with H&P Made Easy, designed to help you gather accurate and comprehensive clinical data.</p>
+            <ul>
+                <li> Chief Complaint Panel – Get tailored question prompts for hundreds of complaints across specialties.</li>
+                <li> AI Question Generator – Instantly create relevant questions if your chief complaint isn't listed.</li>
+                <li> AI Physical Exam Assistant & Diagnostic Tools – Receive guided, structured exams to support your differential diagnosis.</li>
+                <li> Enhance your clinical workflow – Improve efficiency, accuracy, and decision-making in patient management.</li>
+            </ul>
+            <!-- <p>Enhance your clinical workflow with the AI Physical Exam Assistant and Diagnostic Tools, which guide you through focused exams and offer a structured approach to managing patients based on your differential diagnosis. Empower your clinical decision-making and take your medical training to the next level!</p> -->
         </div>
         <div class="phone-animation">
             <div class="phone">
-                <img src="images/phoneimg.jpeg" alt="App Screenshot" class="app-screenshot">
+                <img src="images/homepage.PNG" alt="App Screenshot" class="app-screenshot">
             </div>
         </div>
     </section>
@@ -59,32 +66,31 @@
 
         <div class="feature-container">
             <div class="feature">
-                <h3>AI Question Generator</h3>
-                <p>Create relevant questions instantly if you can't find your chief complaint.</p>
+                <h3>AI Physical Exam Assistant</h3>
+                <p>Enhance your clinical workflow with structured approaches to managing patients.</p>
             </div>
-            <div class="ipad-container">
-                <img src="images/phoneimg.jpeg" alt="AI Question Generator" class="ipad">
-            </div>
+            <video class="ipad" autoplay muted loop> 
+                <source src="examAI.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
         <div class="feature-container">
             <div class="feature">
-                <h3>AI Physical Exam Assistant</h3>
-                <p>Enhance your clinical workflow with structured approaches to managing patients.</p>
+                <h3>AI Question Generator</h3>
+                <p>Create relevant questions instantly if you can't find your chief complaint.</p>
             </div>
-            <div class="ipad-container">
-                <img src="images/phoneimg.jpeg" alt="AI Physical Exam Assistant" class="ipad">
-            </div>
+            <video class="ipad" autoplay muted loop id="diagnosticVideo">
+                <source src="diagnosticAI.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
 
-    <div class="graphic-container">
-        <img src="images/your-app-graphic.png" alt="Your App Graphic" class="graphic"> <!-- Placeholder for your app graphic -->
-    </div>
 
-    <section id="download">
-        <h2>Download the App</h2>
-        <p>Available on iOS.</p>
+    <section id="download" class="download-section">
+        <h2 class="download-heading">Download</h2>
+        <p class="download-subtitle">Empower your clinical decision-making and take your medical training to the next level! <br>Available on iPad. Coming soon to iPhone and Android.</p>
         <a href="https://apple.co/4hxLw5O" target="_blank">
             <img src="images/black.svg" alt="Download on the App Store" class="download-image">
         </a>

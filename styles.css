@@ -1,7 +1,7 @@
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif; /* Change to a cleaner font */
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Ensure no margin */
+    padding: 0; /* Ensure no padding */
     background-color: #000; /* Set background to black */
     color: #fff; /* Set default text color to white */
     scroll-behavior: smooth; /* Smooth scrolling */
@@ -18,9 +18,9 @@ body {
 }
 
 header {
-    background: transparent; /* Ensure the background is transparent */
+    background: #000; /* Set a solid background color to match the body */
     box-shadow: none; /* Remove shadow */
-    padding: 20px;
+    padding: 0; /* Remove padding */
     text-align: left; /* Left-align the header content */
 }
 
@@ -28,16 +28,18 @@ nav {
     display: flex;
     justify-content: space-between; /* Space between logo/title and navigation */
     align-items: center; /* Center items vertically */
-    background: transparent; /* Ensure nav background is transparent */
+    background: none; /* Remove background */
 }
 
 nav a {
     display: flex; /* Use flexbox for logo and title */
     align-items: center; /* Center items vertically */
     text-decoration: none; /* Remove underline */
+    color: white; /* Set text color to white */
 }
 
 nav h1 {
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
     color: transparent; /* Make text transparent to show gradient */
     background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient effect */
     -webkit-background-clip: text; /* Clip background to text */
@@ -46,25 +48,30 @@ nav h1 {
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end; /* Right-align the navigation items */
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    display: flex; /* Use flexbox for layout */
+    margin: 0; /* Remove margin */
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 25px; /* Increase space between items */
 }
 
-nav a {
+nav ul li a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Apple font */
+    font-size: 1.2em; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    color: white; /* Set text color to white */
     text-decoration: none; /* Remove underline */
-    color: black; /* Set text color to black */
-    font-weight: bold; /* Make the text bold */
-    font-size: 1.2em; /* Increase size of navigation links */
-    padding: 10px 20px; /* Add padding for bubble effect */
-    border-radius: 50px; /* Make the button circular */
-    background-color: white; /* Light background for buttons */
-    transition: background-color 0.3s, transform 0.3s; /* Transition for hover effect */
+    padding: 10px; /* Add padding for clickable area */
+    border: none; /* Remove border */
+    background: none; /* Remove background */
+    transition: none; /* Remove transition effects */
+}
+
+nav ul li a:hover {
+    /* Remove hover effects */
 }
 
 nav a:hover {
@@ -75,7 +82,7 @@ nav a:hover {
 .hero {
     height: 100vh; /* Full viewport height */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack items vertically */
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
     text-align: center;
@@ -83,7 +90,8 @@ nav a:hover {
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(68, 68, 68, 0.8)); /* Gradient from black to dark grey */
     background-size: cover; /* Cover the entire section */
     background-position: center; /* Center the background image */
-    padding: 40px; /* Adjust padding as needed */
+    padding: 0; /* Remove padding to avoid pushing content down */
+    margin: 0; /* Ensure no margin at the top */
 }
 
 .hero h1 {
@@ -159,12 +167,13 @@ section {
     font-size: 3em; /* Increase size */
     color: white; /* Set color to white */
     margin-bottom: 20px; /* Space below the heading */
-    text-align: center; /* Center the heading */
+    text-align: left; /* Align the heading to the left */
+    margin-left: 20px; /* Add left margin to match the "By Medical Students" heading */
 }
 
 .feature-container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Center items vertically */
     margin-bottom: 40px; /* Space between feature rows */
     justify-content: center; /* Center items horizontally */
 }
@@ -172,7 +181,7 @@ section {
 .feature {
     flex: 1; /* Allow the feature to take full width */
     margin-right: 20px; /* Space between feature text and iPad */
-    color: white; /* Set text color to white */
+    color: #fff; /* Set text color to white */
     font-size: 1.5em; /* Decrease font size for better layout */
 }
 
@@ -186,8 +195,29 @@ section {
 }
 
 .ipad-container {
-    margin-left: 20px; /* Space between feature text and iPad */
-    margin-right: 20px; /* Space on the right for balance */
+    position: relative; /* Position relative for absolute positioning of video */
+    width: 600px; /* Width of the iPad */
+    height: 800px; /* Height of the iPad */
+    margin: 0 20px; /* Space around the iPad */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the iPad */
+}
+
+.ipad {
+    width: 100%; /* Ensure the video takes the full width of the iPad */
+    height: 100%; /* Ensure the video takes the full height of the iPad */
+    object-fit: cover; /* Cover the area of the iPad without distortion */
+    border: none; /* Remove any border */
+}
+
+.ipad-video {
+    position: absolute; /* Position absolute to fill the iPad */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Cover the area without distortion */
+    border: none; /* Remove any border */
 }
 
 .feature i {
@@ -257,6 +287,17 @@ footer a:hover {
     margin-bottom: 15px; /* Add space between paragraphs */
 }
 
+.text-content ul {
+    font-size: 1.2em; /* Set the font size for the list items */
+    line-height: 1.5; /* Improve readability */
+    margin: 10px 0; /* Add some margin above and below the list */
+    padding-left: 20px; /* Add padding to indent the list */
+}
+
+.text-content ul li {
+    color: white; /* Ensure the text color is white */
+}
+
 .phone {
     width: 400px; /* Adjust width of the iPad mockup */
     height: 600px; /* Adjust height of the iPad mockup */
@@ -299,7 +340,7 @@ footer a:hover {
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
 .logo {
@@ -349,17 +390,18 @@ html {
 #download {
     text-align: center; /* Center the text */
     padding: 40px 20px;
-    color: black; /* Change text color to black */
+    color: white; /* Change text color to white */
 }
 
 #features h2,
 #download h2,
 nav ul li a {
     color: black; /* Set text color to black */
+    color: #ddd;
 }
 
 nav ul li a {
-    color: black; /* Set text color to black for header links */
+    color: white; /* Set text color to white for header links */
 }
 
 #contact {
@@ -409,12 +451,14 @@ nav ul li a {
 }
 
 .download-image {
-    width: 200px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: auto; /* Set width to auto for proper scaling */
+    height: 60px; /* Set a fixed height for the button */
     margin-top: 20px; /* Space above the image */
     cursor: pointer; /* Pointer cursor on hover */
-    border-radius: 50px; /* Make the image circular */
+    border: none; /* Ensure no border */
     transition: transform 0.3s; /* Transition for hover effect */
+    display: inline-block; /* Ensure it behaves like a button */
+    background: none; /* Remove any background */
 }
 
 .download-image:hover {
@@ -426,28 +470,16 @@ h2, h3 {
 }
 
 p {
-    color: #ddd; /* Set paragraph text to a lighter shade */
+    color: #fff; /* Set paragraph text to white */
 }
 
 /* Animation for fading in */
 .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* Remove all properties */
 }
 
 .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.ipad {
-    width: 300px; /* Increase width for a larger iPad */
-    height: 400px; /* Set a height for the iPad */
-    border: 16px solid #000; /* iPad border */
-    border-radius: 20px; /* Rounded corners for iPad */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
-    background: white; /* White background for the iPad */
+    /* Remove all properties */
 }
 
 .new-title {
@@ -462,7 +494,7 @@ p {
 .feature-container .ipad {
     width: 600px; /* Increase width for better visibility */
     height: 800px; /* Increase height for better visibility */
-    border: 16px solid lightgrey; /* Change to light grey or any other color */
+    border: none; /* Remove border */
     border-radius: 20px; /* Rounded corners for the iPad */
     overflow: hidden; /* Hide overflow */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
@@ -478,4 +510,73 @@ p {
     overflow: hidden; /* Hide overflow */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
     background: white; /* White background for the iPad */
+}
+
+.typeform-embed {
+    max-width: 600px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form */
+}
+
+.centered {
+    display: block; /* Make it a block element */
+    text-align: center; /* Center the text */
+}
+
+.download-section {
+    padding: 80px 20px; /* Increase padding for a larger section */
+    text-align: center; /* Center the text */
+    background: rgba(0, 0, 0, 0.8); /* Dark background for contrast */
+    color: white; /* Set text color to white */
+    border-radius: 10px; /* Rounded corners */
+    margin: 20px; /* Margin around the section */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+.download-heading {
+    font-size: 3em; /* Increase heading size */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+.download-subtitle {
+    font-size: 1.5em; /* Adjust subtitle size */
+    margin-bottom: 20px; /* Space below the subtitle */
+}
+
+.download-image {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Space above the image */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* Remove border */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+.download-image:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.handwritten {
+    display: inline-block; /* Ensure it behaves like a block for animation */
+    overflow: hidden; /* Hide the overflow */
+    white-space: nowrap; /* Prevent text from wrapping */
+    border-right: 3px solid; /* Create a cursor effect */
+    animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite; /* Typing and blinking cursor */
+}
+
+@keyframes typing {
+    from {
+        width: 0; /* Start with no width */
+    }
+    to {
+        width: 100%; /* End with full width */
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent; /* Hide the cursor */
+    }
+    50% {
+        border-color: white; /* Show the cursor */
+    }
 } 
