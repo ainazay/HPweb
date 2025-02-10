@@ -222,7 +222,7 @@ section {
 
 .ipad {
     width: 100%; /* Ensure the video takes the full width of the iPad */
-    height: 100%; /* Ensure the video takes the full height of the iPad */
+    height: auto; /* Ensure the video takes the full height of the iPad */
     object-fit: cover; /* Cover the area of the iPad without distortion */
     border: none; /* Remove any border */
 }
@@ -285,23 +285,24 @@ footer a:hover {
     display: flex; /* Use flexbox for layout */
     justify-content: flex-start; /* Align items to the left */
     align-items: center; /* Center items vertically */
-    padding: 40px; /* Add padding around the container */
+    padding: 20px; /* Add padding around the container */
     margin-bottom: 20px; /* Reduce space below the iPad */
     margin: 0;
-    padding: 10px;
+    width: 100%;
 }
 
 .text-content {
-    max-width: 50%; /* Limit the width of the text content */
-    padding-right: 20px; /* Add some space between text and iPad */
-    text-align: left; /* Align text to the left */
-    padding: 10px;
+    max-width: 100%;
+    padding: 0;
     margin: 0;
+    text-align: left;
 }
 
 .text-content h2 {
     font-size: 1.8em;
-    margin-bottom: 20px; /* Add space below the heading */
+    margin: 0 0 20px 0;
+    padding: 0;
+    width: 100%;
     background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient effect */
     -webkit-background-clip: text; /* Clip background to text */
     -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
@@ -309,22 +310,26 @@ footer a:hover {
 }
 
 .text-content p {
-    font-size: 1.5em; /* Increase the size of the paragraphs */
-    line-height: 1.5; /* Improve readability with line height */
-    margin-bottom: 15px; /* Add space between paragraphs */
+    font-size: 1em !important;
+    line-height: 1.5;
+    margin: 20px 0;
+    padding: 0;
+    width: 100%;
 }
 
 .text-content ul {
+    margin: 20px 0;
+    padding: 0 20px;
     font-size: 1em;
-    line-height: 1.4;
-    margin: 10px;
-    padding-left: 20px;
+    list-style-position: outside;
+    width: 100%;
 }
 
 .text-content ul li {
-    color: white; /* Ensure the text color is white */
-    font-size: 0.9em;
+    padding-left: 5px;
     margin-bottom: 15px;
+    line-height: 1.4;
+    width: 100%;
 }
 
 .phone {
@@ -335,7 +340,7 @@ footer a:hover {
     overflow: hidden; /* Hide overflow */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
     background: white; /* White background for the iPad */
-    margin: 20px auto;
+    margin: 30px auto;
 }
 
 /* Adjust notch effect if needed */
@@ -904,16 +909,17 @@ main a:hover {
 
     .ipad, .ipad-container {
         width: 100% !important;
-        height: 100% !important;
-        aspect-ratio: 3/4;
+        height: auto !important;
+        max-height: 400px;
         margin: 0;
         overflow: hidden;
     }
 
     video.ipad {
         width: 100% !important;
-        height: 100% !important;
-        object-fit: contain;
+        height: auto !important;
+        object-fit: cover;
+        max-height: 400px;
         background: #000;
     }
 
