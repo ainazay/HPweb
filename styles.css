@@ -6,6 +6,8 @@ body {
     color: #fff; /* Set default text color to white */
     scroll-behavior: smooth; /* Smooth scrolling */
     transition: background-color 0.5s ease; /* Smooth transition for background color */
+    width: 100%;
+    overflow-x: hidden;
 }
 
 @keyframes backgroundAnimation {
@@ -22,6 +24,7 @@ header {
     box-shadow: none; /* Remove shadow */
     padding: 0; /* Remove padding */
     text-align: left; /* Left-align the header content */
+    width: 100%;
 }
 
 nav {
@@ -29,6 +32,7 @@ nav {
     justify-content: space-between; /* Space between logo/title and navigation */
     align-items: center; /* Center items vertically */
     background: none; /* Remove background */
+    margin: 0;
 }
 
 nav a {
@@ -36,6 +40,8 @@ nav a {
     align-items: center; /* Center items vertically */
     text-decoration: none; /* Remove underline */
     color: white; /* Set text color to white */
+    padding: 0 10px;
+    margin: 0;
 }
 
 nav h1 {
@@ -90,14 +96,16 @@ nav a:hover {
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(68, 68, 68, 0.8)); /* Gradient from black to dark grey */
     background-size: cover; /* Cover the entire section */
     background-position: center; /* Center the background image */
-    padding: 0; /* Remove padding to avoid pushing content down */
+    padding: 20px 10px;
     margin: 0; /* Ensure no margin at the top */
+    min-height: 80vh;
 }
 
 .hero h1 {
-    font-size: 4em; /* Increase size for prominence */
+    font-size: 2em;
     margin: 0; /* Remove default margins */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+    padding: 0 10px;
 }
 
 .hero p {
@@ -130,6 +138,9 @@ section {
     background: rgba(255, 255, 255, 0.1); /* Light background for sections */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
     animation: fadeIn 0.5s ease-in-out; /* Fade-in effect for sections */
+    margin: 0;
+    padding: 20px 10px;
+    border-radius: 0;
 }
 
 .hero-image {
@@ -160,15 +171,16 @@ section {
     background: linear-gradient(90deg, #333, #444); /* Gradient from darker grey to a slightly lighter grey */
     color: white; /* Set text color to white for better contrast */
     transition: background 0.5s ease; /* Smooth transition effect */
+    margin: 0;
+    padding: 20px 10px;
 }
 
 .features-heading {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Apple font */
-    font-size: 3em; /* Increase size */
+    font-size: 2em !important;
     color: white; /* Set color to white */
-    margin-bottom: 20px; /* Space below the heading */
-    text-align: left; /* Align the heading to the left */
-    margin-left: 20px; /* Add left margin to match the "By Medical Students" heading */
+    margin: 0 0 20px 0;
+    text-align: center;
 }
 
 .feature-container {
@@ -176,6 +188,8 @@ section {
     align-items: center; /* Center items vertically */
     margin-bottom: 40px; /* Space between feature rows */
     justify-content: center; /* Center items horizontally */
+    margin: 0 0 30px 0;
+    padding: 0;
 }
 
 .feature {
@@ -183,15 +197,18 @@ section {
     margin-right: 20px; /* Space between feature text and iPad */
     color: #fff; /* Set text color to white */
     font-size: 1.5em; /* Decrease font size for better layout */
+    margin: 0 0 20px 0;
+    padding: 0 10px;
 }
 
 .feature h3, .feature p {
     margin: 0; /* Remove default margins */
     color: white; /* Set text color to white */
-    font-size: 1.5em; /* Adjust font size as needed */
+    font-size: 1.4em !important;
     opacity: 1; /* Ensure text is visible */
     transform: translateY(0); /* Reset transform */
     transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+    margin-bottom: 10px;
 }
 
 .ipad-container {
@@ -244,10 +261,15 @@ footer {
     padding: 20px;
     background: rgba(0, 0, 0, 0.8); /* Dark footer */
     color: white;
+    margin: 0;
+    padding: 20px 10px;
 }
 
 footer p {
     margin: 0; /* Remove margin */
+    font-size: 0.8em;
+    padding: 0;
+    line-height: 1.5;
 }
 
 footer a {
@@ -265,20 +287,25 @@ footer a:hover {
     align-items: center; /* Center items vertically */
     padding: 40px; /* Add padding around the container */
     margin-bottom: 20px; /* Reduce space below the iPad */
+    margin: 0;
+    padding: 10px;
 }
 
 .text-content {
     max-width: 50%; /* Limit the width of the text content */
     padding-right: 20px; /* Add some space between text and iPad */
     text-align: left; /* Align text to the left */
+    padding: 10px;
+    margin: 0;
 }
 
 .text-content h2 {
-    font-size: 3em; /* Increase the size of the main heading */
+    font-size: 1.8em;
     margin-bottom: 20px; /* Add space below the heading */
     background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient effect */
     -webkit-background-clip: text; /* Clip background to text */
     -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+    text-align: center;
 }
 
 .text-content p {
@@ -288,24 +315,27 @@ footer a:hover {
 }
 
 .text-content ul {
-    font-size: 1.2em; /* Set the font size for the list items */
-    line-height: 1.5; /* Improve readability */
-    margin: 10px 0; /* Add some margin above and below the list */
-    padding-left: 20px; /* Add padding to indent the list */
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 10px;
+    padding-left: 20px;
 }
 
 .text-content ul li {
     color: white; /* Ensure the text color is white */
+    font-size: 0.9em;
+    margin-bottom: 15px;
 }
 
 .phone {
-    width: 400px; /* Adjust width of the iPad mockup */
-    height: 600px; /* Adjust height of the iPad mockup */
+    width: 280px;
+    height: 420px;
     border: 16px solid #000; /* Black border for the iPad */
     border-radius: 20px; /* Rounded corners for iPad */
     overflow: hidden; /* Hide overflow */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
     background: white; /* White background for the iPad */
+    margin: 20px auto;
 }
 
 /* Adjust notch effect if needed */
@@ -493,8 +523,9 @@ p {
     color: transparent; /* Make text transparent to show gradient */
     background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient effect */
     -webkit-background-clip: text; /* Clip background to text */
-    font-size: 3em; /* Adjust title size */
-    margin: 0 10px; /* Add margin for spacing */
+    font-size: 2em !important;
+    margin: 0;
+    text-align: center;
 }
 
 /* Styles for the iPad in the Features Section */
@@ -565,9 +596,12 @@ p {
 .handwritten {
     display: inline-block; /* Ensure it behaves like a block for animation */
     overflow: hidden; /* Hide the overflow */
-    white-space: nowrap; /* Prevent text from wrapping */
+    white-space: normal;
     border-right: 3px solid; /* Create a cursor effect */
     animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite; /* Typing and blinking cursor */
+    animation: none;
+    border: none;
+    width: auto;
 }
 
 @keyframes typing {
@@ -724,16 +758,22 @@ main a:hover {
 /* Mobile-friendly styles */
 @media screen and (max-width: 768px) {
     /* Navigation */
+    header {
+        width: 100%;
+        padding: 10px;
+    }
+
     nav {
         flex-direction: column;
         padding: 10px;
         width: 100%;
+        margin: 0;
     }
 
     nav a {
         justify-content: center;
-        width: 100%;
-        margin-bottom: 10px;
+        padding: 0 10px;
+        margin: 0;
     }
 
     nav ul {
@@ -745,129 +785,152 @@ main a:hover {
 
     /* Hero section */
     .hero {
-        min-height: 100vh;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .hero h1 {
-        font-size: 2.5em;
-        word-wrap: break-word;
-        white-space: normal;
-    }
-
-    /* Phone container section */
-    .phone-container {
-        flex-direction: column;
-        padding: 10px;
-        margin: 10px;
-    }
-
-    .text-content {
-        max-width: 100%;
-        padding-right: 0;
-        padding: 10px;
-    }
-
-    .text-content ul {
-        padding-left: 20px;
-        margin: 10px 0;
-    }
-
-    .text-content ul li {
-        font-size: 1em;
-        margin-bottom: 10px;
-    }
-
-    /* Features section */
-    .features {
         padding: 20px 10px;
-        margin: 0;
-    }
-
-    .feature-container {
-        flex-direction: column;
-        padding: 10px;
-        margin: 10px 0;
-    }
-
-    .ipad {
-        width: 100% !important;
-        height: auto !important;
-        max-width: 90vw;
-        border-radius: 10px;
-    }
-
-    /* Download section */
-    .download-section {
-        padding: 40px 20px;
-        margin: 10px;
-    }
-
-    .download-image {
-        width: 80%;
-        max-width: 200px;
-    }
-
-    /* Main content for terms and privacy pages */
-    main {
-        padding: 20px 15px;
-        margin: 0;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    main ul {
-        padding-left: 20px;
-    }
-
-    /* Footer */
-    footer {
-        padding: 20px 10px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    footer p {
-        font-size: 0.9em;
-        padding: 0 10px;
-    }
-}
-
-/* Small phones */
-@media screen and (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.8em;
-    }
-
-    .new-title {
-        font-size: 1.5em !important;
-    }
-
-    .phone {
-        width: 90%;
-        max-width: 300px;
         height: auto;
-        aspect-ratio: 2/3;
-        border-width: 8px;
+        min-height: 80vh;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+        padding: 0 10px;
     }
 
     .handwritten {
         white-space: normal;
-        border-right: none;
+        animation: none;
+        border: none;
+        width: auto;
     }
 
-    section {
+    /* Phone container section */
+    .phone-container {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .text-content {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .text-content h2 {
+        font-size: 1.8em;
+        text-align: center;
+    }
+
+    .text-content ul {
         margin: 10px;
+        padding-left: 20px;
+        font-size: 1em;
+    }
+
+    .text-content ul li {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+
+    /* Features section */
+    .features {
+        margin: 0;
         padding: 20px 10px;
     }
 
+    .features-heading {
+        font-size: 2em !important;
+        margin: 0 0 20px 0;
+        text-align: center;
+    }
+
+    .feature-container {
+        margin: 0 0 30px 0;
+        padding: 0;
+    }
+
+    .feature {
+        margin: 0 0 20px 0;
+        padding: 0 10px;
+    }
+
     .feature h3 {
-        font-size: 1.2em !important;
+        font-size: 1.4em !important;
+        margin-bottom: 10px;
     }
 
     .feature p {
-        font-size: 0.9em !important;
+        font-size: 1em !important;
+    }
+
+    .ipad, .ipad-container {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 3/4;
+        margin: 0;
+    }
+
+    /* Download section */
+    .download-section {
+        margin: 0;
+        padding: 30px 10px;
+        border-radius: 0;
+    }
+
+    .download-heading {
+        font-size: 2em;
+    }
+
+    .download-subtitle {
+        font-size: 1.1em;
+        padding: 0 10px;
+    }
+
+    .download-subtitle br {
+        display: none;
+    }
+
+    /* Footer */
+    footer {
+        margin: 0;
+        padding: 20px 10px;
+    }
+
+    footer p {
+        font-size: 0.8em;
+        padding: 0;
+        line-height: 1.5;
+    }
+
+    /* Phone display */
+    .phone {
+        width: 280px;
+        height: 420px;
+        border-width: 8px;
+        margin: 20px auto;
+    }
+
+    section {
+        margin: 0;
+        padding: 20px 10px;
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav ul li a {
+        font-size: 1em;
+    }
+
+    .text-content h2 br {
+        display: none;
+    }
+
+    .phone {
+        width: 240px;
+        height: 360px;
+    }
+
+    .download-image {
+        width: 180px;
     }
 }
 
@@ -875,4 +938,6 @@ main a:hover {
 * {
     box-sizing: border-box;
     -webkit-text-size-adjust: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
 } 
