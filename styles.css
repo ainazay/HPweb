@@ -102,7 +102,7 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-size: 2em;
+    font-size: 4em;
     margin: 0; /* Remove default margins */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
     padding: 0 10px;
@@ -188,6 +188,8 @@ section {
     align-items: center;
     margin-bottom: 40px;
     justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
 }
 
 .feature {
@@ -215,10 +217,12 @@ section {
     align-items: center;
     padding: 40px;
     margin-bottom: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .text-content {
-    max-width: 50%;
+    max-width: 45%;
     padding-right: 40px;
 }
 
@@ -523,13 +527,11 @@ p {
 }
 
 .handwritten {
-    display: inline-block; /* Ensure it behaves like a block for animation */
-    overflow: hidden; /* Hide the overflow */
-    white-space: normal;
-    border-right: 3px solid; /* Create a cursor effect */
-    animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite; /* Typing and blinking cursor */
-    animation: none;
-    border: none;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
     width: auto;
 }
 
@@ -919,7 +921,7 @@ main a:hover {
 
 .ipad-container {
     position: relative;
-    width: 600px;
+    width: 800px;
     height: 800px;
     margin: 0 20px;
     display: flex;
