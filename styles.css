@@ -815,23 +815,27 @@ main a:hover {
     /* Phone container section */
     .phone-container {
         margin: 0;
-        padding: 10px;
+        padding: 20px;
         flex-direction: column;
         align-items: center;
+        width: 90%;
+        margin: 0 auto;
     }
 
     .text-content {
-        padding: 10px;
+        padding: 0 20px;
         margin: 0;
         width: 100%;
         text-align: left;
+        max-width: 90%;
+        margin: 0 auto;
     }
 
     .text-content h2 {
         font-size: 1.8em;
         text-align: left;
-        margin-bottom: 15px;
-        padding: 0 15px;
+        margin-bottom: 20px;
+        padding: 0 10px;
     }
 
     .text-content p {
@@ -842,7 +846,7 @@ main a:hover {
     }
 
     .text-content ul {
-        margin: 10px;
+        margin: 20px 10px;
         padding: 0 30px;
         font-size: 1em;
         list-style-position: outside;
@@ -908,19 +912,20 @@ main a:hover {
     }
 
     .ipad, .ipad-container {
-        width: 100% !important;
-        height: auto !important;
-        max-height: 400px;
-        margin: 0;
+        width: 90% !important;
+        height: 300px !important;
+        margin: 0 auto;
         overflow: hidden;
+        position: relative;
     }
 
     video.ipad {
-        width: 100% !important;
-        height: auto !important;
+        width: 90% !important;
+        height: 300px !important;
         object-fit: cover;
-        max-height: 400px;
         background: #000;
+        margin: 0 auto;
+        display: block;
     }
 
     /* Download section */
