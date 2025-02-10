@@ -764,7 +764,7 @@ main a:hover {
     }
 
     nav {
-        flex-direction: row;
+        flex-direction: column;
         padding: 10px;
         width: 100%;
         margin: 0;
@@ -772,20 +772,20 @@ main a:hover {
 
     nav a {
         justify-content: center;
-        padding: 0 10px;
-        margin: 0;
+        width: 100%;
+        margin-bottom: 15px;
     }
 
     nav ul {
         flex-direction: row;
-        align-items: center;
-        margin: 0;
+        justify-content: center;
         width: 100%;
-        justify-content: flex-end;
+        margin-top: 10px;
     }
 
     nav ul li {
-        margin: 0 10px;
+        margin: 0 15px;
+        white-space: nowrap;
     }
 
     /* Hero section */
@@ -819,13 +819,14 @@ main a:hover {
         padding: 10px;
         margin: 0;
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
 
     .text-content h2 {
         font-size: 1.8em;
-        text-align: center;
+        text-align: left;
         margin-bottom: 15px;
+        padding: 0 15px;
     }
 
     .text-content p {
@@ -837,9 +838,15 @@ main a:hover {
 
     .text-content ul {
         margin: 10px;
-        padding: 0 20px;
+        padding: 0 30px;
         font-size: 1em;
-        list-style-position: inside;
+        list-style-position: outside;
+    }
+
+    .text-content ul li {
+        padding-left: 10px;
+        margin-bottom: 15px;
+        line-height: 1.4;
     }
 
     .phone {
@@ -897,8 +904,8 @@ main a:hover {
 
     .ipad, .ipad-container {
         width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 4/3;
+        height: 100% !important;
+        aspect-ratio: 3/4;
         margin: 0;
         overflow: hidden;
     }
@@ -906,7 +913,7 @@ main a:hover {
     video.ipad {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover;
+        object-fit: contain;
         background: #000;
     }
 

@@ -113,4 +113,11 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         color: "white", // Change to white
     });
+
+    // Prevent automatic scrolling on page load
+    if (window.location.hash) {
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 1);
+    }
 }); 
