@@ -191,14 +191,14 @@ section {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto 40px auto;
+    gap: 40px;
 }
 
 .feature {
-    flex: 1; /* Allow the feature to take full width */
-    margin-right: 20px; /* Space between feature text and iPad */
-    color: #fff; /* Set text color to white */
-    font-size: 1.5em; /* Decrease font size for better layout */
-    margin: 0 0 20px 0;
+    flex: 1;
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0;
     padding: 0 10px;
 }
 
@@ -238,22 +238,23 @@ section {
 }
 
 .text-content p {
-    font-size: 1.2em;
+    font-size: 1.4em;
     line-height: 1.6;
-    margin: 20px 0;
+    margin: 10px 0;
     color: white;
+    font-weight: bold;
 }
 
 .text-content ul {
-    margin: 30px 0;
+    margin: 15px 0;
     padding: 0 20px;
-    font-size: 1.2em;
+    font-size: 1.4em;
     list-style-position: outside;
 }
 
 .text-content ul li {
     padding-left: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     line-height: 1.6;
     color: white;
 }
@@ -528,7 +529,7 @@ p {
     white-space: nowrap;
     border-right: 3px solid;
     width: fit-content;
-    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
 }
 
 @keyframes typing {
@@ -930,10 +931,12 @@ main a:hover {
 }
 
 video.ipad {
-    width: 100%;
-    height: 100%;
+    width: 800px;
+    height: 800px;
     object-fit: cover;
     background: #000;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 footer {
