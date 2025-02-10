@@ -727,99 +727,152 @@ main a:hover {
     nav {
         flex-direction: column;
         padding: 10px;
+        width: 100%;
+    }
+
+    nav a {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
     }
 
     nav ul {
         flex-direction: column;
         align-items: center;
         margin-top: 20px;
-    }
-
-    nav ul li {
-        margin: 10px 0;
+        width: 100%;
     }
 
     /* Hero section */
-    .hero h1 {
-        font-size: 2.5em;
-        padding: 0 20px;
+    .hero {
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
     }
 
-    .hero p {
-        font-size: 1.2em;
-        padding: 0 20px;
+    .hero h1 {
+        font-size: 2.5em;
+        word-wrap: break-word;
+        white-space: normal;
     }
 
     /* Phone container section */
     .phone-container {
         flex-direction: column;
-        padding: 20px;
+        padding: 10px;
+        margin: 10px;
     }
 
     .text-content {
         max-width: 100%;
         padding-right: 0;
-        margin-bottom: 30px;
+        padding: 10px;
+    }
+
+    .text-content ul {
+        padding-left: 20px;
+        margin: 10px 0;
+    }
+
+    .text-content ul li {
+        font-size: 1em;
+        margin-bottom: 10px;
     }
 
     /* Features section */
-    .feature-container {
-        flex-direction: column;
-        margin: 20px 0;
+    .features {
+        padding: 20px 10px;
+        margin: 0;
     }
 
-    .feature {
-        margin-right: 0;
-        margin-bottom: 20px;
-        text-align: center;
+    .feature-container {
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px 0;
     }
 
     .ipad {
         width: 100% !important;
         height: auto !important;
-        max-width: 400px;
+        max-width: 90vw;
+        border-radius: 10px;
     }
 
     /* Download section */
-    .download-heading {
-        font-size: 2em;
+    .download-section {
+        padding: 40px 20px;
+        margin: 10px;
     }
 
-    .download-subtitle {
-        font-size: 1.2em;
+    .download-image {
+        width: 80%;
+        max-width: 200px;
     }
 
-    /* General text */
-    h2 {
-        font-size: 2em !important;
+    /* Main content for terms and privacy pages */
+    main {
+        padding: 20px 15px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    h3 {
-        font-size: 1.5em !important;
+    main ul {
+        padding-left: 20px;
     }
 
-    p {
-        font-size: 1em !important;
+    /* Footer */
+    footer {
+        padding: 20px 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    footer p {
+        font-size: 0.9em;
+        padding: 0 10px;
     }
 }
 
 /* Small phones */
 @media screen and (max-width: 480px) {
     .hero h1 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     .new-title {
-        font-size: 2em !important;
-    }
-
-    .logo {
-        width: 40px;
-        height: 40px;
+        font-size: 1.5em !important;
     }
 
     .phone {
-        width: 300px;
-        height: 450px;
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 2/3;
+        border-width: 8px;
     }
+
+    .handwritten {
+        white-space: normal;
+        border-right: none;
+    }
+
+    section {
+        margin: 10px;
+        padding: 20px 10px;
+    }
+
+    .feature h3 {
+        font-size: 1.2em !important;
+    }
+
+    .feature p {
+        font-size: 0.9em !important;
+    }
+}
+
+/* Fix for all screen sizes */
+* {
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
 } 
