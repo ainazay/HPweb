@@ -123,12 +123,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // iOS Form Handler
     document.getElementById('notifyFormIOS').addEventListener('submit', function(e) {
-        handleFormSubmit(e, '1hi_Q7BjqvQOM_VfC573ADDLG6C59JFYNG6doOqLvEaA', 'entry.672705469', 'notifyEmailIOS');
+        handleFormSubmit(e, 'FAIpQLSe1hi_Q7BjqvQOM_VfC573ADDLG6C59JFYNG6doOqLvEaA', 'entry.672705469', 'notifyEmailIOS');
     });
 
     // Android Form Handler
     document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-        handleFormSubmit(e, '1r6j6WfrsM0jv_cL-b7sNa1rz-AXUzTNn5mE5m6JSICk', 'entry.672705469', 'notifyEmailAndroid');
+        handleFormSubmit(e, 'FAIpQLSe1r6j6WfrsM0jv_cL-b7sNa1rz-AXUzTNn5mE5m6JSICk', 'entry.672705469', 'notifyEmailAndroid');
     });
 
     function handleFormSubmit(e, formId, entryId, inputId) {
@@ -143,37 +143,48 @@ document.addEventListener('DOMContentLoaded', function() {
             emailInput.classList.add('error');
             return;
         }
+
+        // Prepare the form data
+        const formData = new FormData();
+        formData.append(entryId, email);
+
+        // Create the submission URL
+        const url = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
         
-        // Create a hidden iframe for submission
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        
-        // Create form inside iframe
-        const html = `
-            <form method="POST" action="https://docs.google.com/forms/d/e/${formId}/formResponse">
-                <input name="${entryId}" value="${email}">
-                <input type="submit" name="submit" value="Submit">
-            </form>
-            <script>document.querySelector('form').submit();</script>
-        `;
-        
-        iframe.contentWindow.document.open();
-        iframe.contentWindow.document.write(html);
-        iframe.contentWindow.document.close();
-        
-        // Log submission details
-        console.log('Form submission:', {
-            formId,
-            entryId,
-            email,
-            url: `https://docs.google.com/forms/d/e/${formId}/formResponse`
+        // Submit using fetch with CORS proxy
+        fetch('https://cors-anywhere.herokuapp.com/' + url, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Origin': window.location.origin,
+            },
+        }).catch(() => {
+            // Fallback method using iframe
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.name = 'hidden_iframe';
+            document.body.appendChild(iframe);
+            
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = url;
+            form.target = 'hidden_iframe';
+            
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = entryId;
+            input.value = email;
+            form.appendChild(input);
+            
+            document.body.appendChild(form);
+            form.submit();
+            
+            // Clean up
+            setTimeout(() => {
+                document.body.removeChild(form);
+                document.body.removeChild(iframe);
+            }, 1000);
         });
-        
-        // Remove iframe after submission
-        setTimeout(() => {
-            document.body.removeChild(iframe);
-        }, 1000);
 
         const button = e.target.querySelector('button');
         const originalText = button.textContent;

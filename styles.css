@@ -215,18 +215,17 @@ section {
 .phone-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 40px;
-    max-width: 1600px;
+    max-width: 1800px;
     margin: 0 auto;
     background: rgba(20, 20, 20, 0.4);
 }
 
 .text-content {
-    max-width: 50%;
+    max-width: 60%;
     padding-right: 40px;
     text-align: left;
-    width: 100%;
 }
 
 .text-content h2 {
@@ -238,13 +237,15 @@ section {
     -webkit-text-fill-color: transparent;
 }
 
-.text-content p {
+.text-content p, .text-content ul li {
     font-size: 1.6em;
     line-height: 1.6;
     margin: 10px 0;
     color: white;
-    font-weight: bold;
-    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .text-content ul {
