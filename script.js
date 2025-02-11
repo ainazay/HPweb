@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Android Form Handler
     document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-        handleFormSubmit(e, 'FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid');
+        handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid');
     });
 
     function handleFormSubmit(e, formId, entryId, inputId) {
