@@ -123,15 +123,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // iOS Form Handler
     document.getElementById('notifyFormIOS').addEventListener('submit', function(e) {
-        handleFormSubmit(e, '1FAIpQLSd9XsWCdENYYMrF598lU0cyfjXOx-Rks1M1x9gXqj7atiR_EQ', 'entry.672705469', 'notifyEmailIOS');
+        handleFormSubmit(e, '1FAIpQLSd9XsWCdENYYMrF598lU0cyfjXOx-Rks1M1x9gXqj7atiR_EQ', 'entry.672705469', 'notifyEmailIOS', 'iOS');
     });
 
     // Android Form Handler
     document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-        handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid');
+        handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid', 'Android');
     });
 
-    function handleFormSubmit(e, formId, entryId, inputId) {
+    function handleFormSubmit(e, formId, entryId, inputId, platform) {
         e.preventDefault();
         
         const emailInput = document.getElementById(inputId);
@@ -148,31 +148,59 @@ document.addEventListener('DOMContentLoaded', function() {
         const originalText = button.textContent;
         button.textContent = 'Submitting...';
 
-        // Direct form submission
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
-        form.target = '_blank';
+        try {
+            // Create hidden iframe
+            const iframe = document.createElement('iframe');
+            iframe.name = `hidden_iframe_${Date.now()}`;
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
 
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = entryId;
-        input.value = email;
-        form.appendChild(input);
+            // Create form
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
+            form.target = iframe.name;
+            form.style.display = 'none';
 
-        document.body.appendChild(form);
-        form.submit();
-        document.body.removeChild(form);
+            // Add email input
+            const emailField = document.createElement('input');
+            emailField.type = 'hidden';
+            emailField.name = entryId;
+            emailField.value = email;
+            form.appendChild(emailField);
 
-        // Show success message
-        setTimeout(() => {
+            // Add platform input (optional)
+            if (platform) {
+                const platformField = document.createElement('input');
+                platformField.type = 'hidden';
+                platformField.name = 'entry.platform';
+                platformField.value = platform;
+                form.appendChild(platformField);
+            }
+
+            document.body.appendChild(form);
+            form.submit();
+
+            // Success handling
             emailInput.value = '';
             button.classList.add('success');
             button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
+
+            // Cleanup after submission
             setTimeout(() => {
-                button.classList.remove('success');
-                button.innerHTML = originalText;
+                if (document.body.contains(form)) document.body.removeChild(form);
+                if (document.body.contains(iframe)) document.body.removeChild(iframe);
+                setTimeout(() => {
+                    button.classList.remove('success');
+                    button.innerHTML = originalText;
+                }, 2000);
+            }, 1000);
+        } catch (error) {
+            console.error('Form submission error:', error);
+            button.textContent = 'Please try again';
+            setTimeout(() => {
+                button.textContent = originalText;
             }, 2000);
-        }, 1000);
+        }
     }
 }); 

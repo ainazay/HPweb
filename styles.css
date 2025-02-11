@@ -219,7 +219,7 @@ section {
     padding: 40px;
     max-width: 1800px;
     margin: 0 auto;
-    background: #2e2d41;  /* This matches the color you wanted */
+    background: #000000;  /* This matches the color you wanted */
 }
 
 .text-content {
@@ -988,7 +988,7 @@ video.ipad {
     width: 800px;
     height: 800px;
     object-fit: cover;
-    background: #2e2d41;  /* Slightly lighter black */
+    border: 2px solid #2e2d41;  /* This will change just the border */
     border-radius: 20px;
     overflow: hidden;
 }
