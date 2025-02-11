@@ -123,15 +123,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // iOS Form Handler
     document.getElementById('notifyFormIOS').addEventListener('submit', function(e) {
-        handleFormSubmit(e, 'FAIpQLSd9XsWCdENYYMrF598lU0cyfjXOx-Rks1M1x9gXqj7atiR_EQ', 'entry.672705469', 'notifyEmailIOS');
+        handleFormSubmit(e, '250337608082152', 'q3_email', 'notifyEmailIOS', 'iOS');
     });
 
     // Android Form Handler
     document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-        handleFormSubmit(e, 'FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid');
+        handleFormSubmit(e, '250337608082152', 'q3_email', 'notifyEmailAndroid', 'Android');
     });
 
-    function handleFormSubmit(e, formId, entryId, inputId) {
+    function handleFormSubmit(e, formId, emailField, inputId, platform) {
         e.preventDefault();
         
         const emailInput = document.getElementById(inputId);
@@ -144,39 +144,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Create a hidden form
-        const form = document.createElement('form');
-        form.action = `https://docs.google.com/forms/d/e/${formId}/viewform`;
-        form.method = 'POST';
-        form.target = '_blank';
-        form.style.display = 'none';
-
-        // Add email input
-        const hiddenInput = document.createElement('input');
-        hiddenInput.name = entryId;
-        hiddenInput.value = email;
-        form.appendChild(hiddenInput);
-
-        // Add submit button
-        const submitBtn = document.createElement('input');
-        submitBtn.type = 'submit';
-        submitBtn.name = 'submit';
-        form.appendChild(submitBtn);
-
-        // Add to page and submit
-        document.body.appendChild(form);
-        form.submit();
-
-        // Clean up
-        setTimeout(() => {
-            document.body.removeChild(form);
-        }, 1000);
-
         const button = e.target.querySelector('button');
         const originalText = button.textContent;
         button.textContent = 'Submitting...';
-        
-        setTimeout(() => {
+
+        // Submit to JotForm
+        const formData = new URLSearchParams();
+        formData.append('submission[3]', email);  // Email field
+        formData.append('submission[4]', platform);  // Platform field
+        formData.append('formID', formId);
+
+        fetch(`https://form.jotform.com/submit/${formId}`, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            mode: 'no-cors'  // Add this to handle CORS
+        })
+        .then(() => {
+            // Success
             emailInput.value = '';
             button.classList.add('success');
             button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
@@ -184,6 +172,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.classList.remove('success');
                 button.innerHTML = originalText;
             }, 2000);
-        }, 1000);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            button.textContent = 'Error - Try Again';
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        });
     }
 }); 
