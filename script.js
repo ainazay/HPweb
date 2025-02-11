@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Create a hidden form
         const form = document.createElement('form');
-        form.action = `https://docs.google.com/forms/d/${formId}/formResponse`;
+        form.action = `https://docs.google.com/forms/d/e/${formId}/viewform`;
         form.method = 'POST';
         form.target = '_blank';
         form.style.display = 'none';
@@ -156,6 +156,12 @@ document.addEventListener('DOMContentLoaded', function() {
         hiddenInput.name = entryId;
         hiddenInput.value = email;
         form.appendChild(hiddenInput);
+
+        // Add submit button
+        const submitBtn = document.createElement('input');
+        submitBtn.type = 'submit';
+        submitBtn.name = 'submit';
+        form.appendChild(submitBtn);
 
         // Add to page and submit
         document.body.appendChild(form);
