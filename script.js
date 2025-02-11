@@ -134,12 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleFormSubmit(e, formId, entryId, inputId) {
         e.preventDefault();
         
-        console.log('Submitting form:', {
-            formId,
-            entryId,
-            email: document.getElementById(inputId).value
-        });
-        
         const emailInput = document.getElementById(inputId);
         const email = emailInput.value;
         
@@ -150,35 +144,41 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        const url = new URL(`https://docs.google.com/forms/d/${formId}/formResponse`);
-        url.searchParams.append(entryId, email);
-        
+        // Create a form element
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
+        form.target = '_blank';
+        form.style.display = 'none';
+
+        // Add the email input
+        const input = document.createElement('input');
+        input.name = entryId;
+        input.value = email;
+        form.appendChild(input);
+
+        // Add submit button
+        const submitBtn = document.createElement('input');
+        submitBtn.type = 'submit';
+        form.appendChild(submitBtn);
+
+        // Add to document and submit
+        document.body.appendChild(form);
+        console.log('Submitting to:', form.action);
+        console.log('With data:', {
+            [entryId]: email
+        });
+        form.submit();
+        document.body.removeChild(form);
+
         const button = e.target.querySelector('button');
         const originalText = button.textContent;
         button.textContent = 'Submitting...';
-        
-        // Remove any existing error states
-        emailInput.classList.remove('error');
-        const existingError = emailInput.parentNode.querySelector('.error-message');
-        if (existingError) {
-            existingError.remove();
-        }
-        
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        iframe.src = url.toString();
-        
-        // Add error handling for iframe load
-        iframe.onerror = () => {
-            console.error('Form submission failed');
-        };
         
         setTimeout(() => {
             emailInput.value = '';
             button.classList.add('success');
             button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
-            document.body.removeChild(iframe);
             setTimeout(() => {
                 button.classList.remove('success');
                 button.innerHTML = originalText;
