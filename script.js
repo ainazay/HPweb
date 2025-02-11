@@ -134,9 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleFormSubmit(e, formId, entryId, inputId) {
         e.preventDefault();
         
-        // Debug logging
-        console.log('Starting form submission for:', inputId);
-        
         const emailInput = document.getElementById(inputId);
         const email = emailInput.value;
         
@@ -144,7 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
             emailInput.classList.add('error');
-            console.error('Invalid email format:', email);
             return;
         }
 
@@ -152,50 +148,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const originalText = button.textContent;
         button.textContent = 'Submitting...';
 
-        try {
-            // Create hidden iframe with unique name
-            const iframeName = `hidden_iframe_${Date.now()}`;
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.name = iframeName;
-            document.body.appendChild(iframe);
-            
-            // Create actual form for submission
-            const form = document.createElement('form');
-            form.action = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
-            form.method = 'POST';
-            form.target = iframeName;
-            
-            // Add email input
-            const hiddenInput = document.createElement('input');
-            hiddenInput.name = entryId;
-            hiddenInput.value = email;
-            form.appendChild(hiddenInput);
-            
-            // Add to page and submit
-            document.body.appendChild(form);
-            console.log('Submitting to:', form.action);
-            form.submit();
+        // Direct form submission
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
+        form.target = '_blank';
 
-            // Show success and clean up
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = entryId;
+        input.value = email;
+        form.appendChild(input);
+
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+
+        // Show success message
+        setTimeout(() => {
+            emailInput.value = '';
+            button.classList.add('success');
+            button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
             setTimeout(() => {
-                emailInput.value = '';
-                button.classList.add('success');
-                button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
-                // Clean up form and iframe
-                if (document.body.contains(form)) document.body.removeChild(form);
-                if (document.body.contains(iframe)) document.body.removeChild(iframe);
-                setTimeout(() => {
-                    button.classList.remove('success');
-                    button.innerHTML = originalText;
-                }, 2000);
-            }, 1000);
-        } catch (error) {
-            console.error('Form submission error:', error);
-            button.textContent = 'Error - Try Again';
-            setTimeout(() => {
-                button.textContent = originalText;
+                button.classList.remove('success');
+                button.innerHTML = originalText;
             }, 2000);
-        }
+        }, 1000);
     }
 }); 

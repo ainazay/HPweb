@@ -169,9 +169,9 @@ section {
 
 .features {
     padding: 60px 20px;
-    background: linear-gradient(90deg, #333, #444); /* Gradient from darker grey to a slightly lighter grey */
-    color: white; /* Set text color to white for better contrast */
-    transition: background 0.5s ease; /* Smooth transition effect */
+    background: #000; /* Change to pure black */
+    color: white;
+    transition: background 0.5s ease;
     margin: 0;
     padding: 20px 10px;
 }
@@ -219,7 +219,7 @@ section {
     padding: 40px;
     max-width: 1800px;
     margin: 0 auto;
-    background: rgba(20, 20, 20, 0.4);
+    background: #2e2d41;  /* This matches the color you wanted */
 }
 
 .text-content {
