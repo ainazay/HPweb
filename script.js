@@ -121,50 +121,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1);
     }
 
-    // Handle email notification form submission
-    document.getElementById('notifyForm').addEventListener('submit', function(e) {
+    // iOS Form Handler
+    document.getElementById('notifyFormIOS').addEventListener('submit', function(e) {
+        handleFormSubmit(e, '1hi_Q7BjqvQOM_VfC573ADDLG6C59JFYNG6doOqLvEaA', 'entry.672705469', 'notifyEmailIOS');
+    });
+
+    // Android Form Handler
+    document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
+        handleFormSubmit(e, '1r6j6WfrsM0jv_cL-b7sNa1rz-AXUzTNn5mE5m6JSICk', 'entry.672705469', 'notifyEmailAndroid');
+    });
+
+    function handleFormSubmit(e, formId, entryId, inputId) {
         e.preventDefault();
         
-        const email = document.getElementById('notifyEmail').value;
-        const emailInput = document.getElementById('notifyEmail');
+        console.log('Submitting form:', {
+            formId,
+            entryId,
+            email: document.getElementById(inputId).value
+        });
         
-        // Email validation regex pattern
+        const emailInput = document.getElementById(inputId);
+        const email = emailInput.value;
+        
+        // Email validation
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
         if (!emailPattern.test(email)) {
             emailInput.classList.add('error');
-            // Add error message
-            const existingError = document.querySelector('.error-message');
-            if (!existingError) {
-                const errorMsg = document.createElement('div');
-                errorMsg.className = 'error-message';
-                errorMsg.textContent = 'Please enter a valid email address';
-                emailInput.parentNode.insertBefore(errorMsg, emailInput.nextSibling);
-            }
             return;
         }
         
-        const formId = '1hi_Q7BjqvQOM_VfC573ADDLG6C59JFYNG6doOqLvEaA';
-        const emailFieldId = 'entry.672705469';
+        const url = new URL(`https://docs.google.com/forms/d/${formId}/formResponse`);
+        url.searchParams.append(entryId, email);
         
-        const formData = new FormData();
-        formData.append(emailFieldId, email);
-        
-        // Create URL with parameters
-        const url = new URL(`https://docs.google.com/forms/d/e/${formId}/formResponse`);
-        url.searchParams.append(emailFieldId, email);
-        
-        const button = this.querySelector('button');
+        const button = e.target.querySelector('button');
         const originalText = button.textContent;
         button.textContent = 'Submitting...';
         
-        // Use iframe for submission to prevent page refresh
+        // Remove any existing error states
+        emailInput.classList.remove('error');
+        const existingError = emailInput.parentNode.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+        
         const iframe = document.createElement('iframe');
         iframe.style.display = 'none';
         document.body.appendChild(iframe);
         iframe.src = url.toString();
         
-        // Handle success
+        // Add error handling for iframe load
+        iframe.onerror = () => {
+            console.error('Form submission failed');
+        };
+        
         setTimeout(() => {
             emailInput.value = '';
             button.classList.add('success');
@@ -175,5 +184,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.innerHTML = originalText;
             }, 2000);
         }, 1000);
-    });
+    }
 }); 

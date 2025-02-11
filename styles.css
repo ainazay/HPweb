@@ -886,6 +886,42 @@ main a:hover {
         padding: 20px 10px;
         border-radius: 0;
     }
+
+    .notify-container {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+
+    .notify-options {
+        gap: 30px;
+    }
+
+    .notify-option {
+        min-width: 280px;
+        padding: 0 10px;
+    }
+
+    .notify-text {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        padding: 0 10px;
+    }
+
+    .notify-form input[type="email"] {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+
+    .notify-form button {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+
+    .platform-icon {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -904,6 +940,22 @@ main a:hover {
 
     .download-image {
         width: 180px;
+    }
+
+    .notify-container {
+        padding: 15px;
+    }
+
+    .notify-option {
+        min-width: 240px;
+    }
+
+    .notify-text {
+        font-size: 1.1em;
+    }
+
+    .notify-form input[type="email"] {
+        padding: 10px 15px;
     }
 }
 
@@ -962,44 +1014,63 @@ footer a:hover {
 
 .notify-container {
     margin-top: 40px;
-    padding: 20px;
+    padding: 40px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
-    overflow: hidden;
     background: rgba(20, 20, 20, 0.4);
     border-radius: 10px;
-    padding: 40px;
 }
 
-.notify-text {
-    font-size: 1.4em;
-    margin-bottom: 30px;
-    color: white;
+.notify-options {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.notify-option {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
     text-align: center;
+}
+
+.platform-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    color: white;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.notify-option:hover .platform-icon {
+    transform: scale(1.1);
+    opacity: 1;
 }
 
 .notify-form {
     display: flex;
-    gap: 20px;
-    justify-content: center;
-    max-width: 600px;
-    margin: 0 auto;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
 }
 
 .notify-form input[type="email"] {
-    padding: 12px 20px;
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 25px;
     border-radius: 25px;
-    border: none;
-    width: 400px;
-    font-size: 1.1em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.1);
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.1em;
     transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-    padding: 15px 25px;
+}
+
+.notify-form input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .notify-form input[type="email"]:focus {
@@ -1007,6 +1078,13 @@ footer a:hover {
     border-color: #00c6ff;
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+}
+
+.notify-text {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    color: white;
+    text-align: center;
 }
 
 .notify-form button {
