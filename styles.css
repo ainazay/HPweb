@@ -238,22 +238,18 @@ section {
 }
 
 .text-content p, .text-content ul li {
-    font-size: 1.6em;
+    font-size: 1.2em;
     line-height: 1.6;
     margin: 10px 0;
     color: white;
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+    max-width: 800px;
 }
 
 .text-content ul {
     margin: 15px 0;
     padding: 0 20px;
-    font-size: 1.6em;
+    font-size: 1em;
     list-style-position: outside;
-    max-width: 100%;
 }
 
 .text-content ul li {

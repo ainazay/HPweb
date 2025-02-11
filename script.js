@@ -123,12 +123,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // iOS Form Handler
     document.getElementById('notifyFormIOS').addEventListener('submit', function(e) {
-        handleFormSubmit(e, 'FAIpQLSe1hi_Q7BjqvQOM_VfC573ADDLG6C59JFYNG6doOqLvEaA', 'entry.672705469', 'notifyEmailIOS');
+        handleFormSubmit(e, 'FAIpQLSd9XsWCdENYYMrF598lU0cyfjXOx-Rks1M1x9gXqj7atiR_EQ', 'entry.672705469', 'notifyEmailIOS');
     });
 
     // Android Form Handler
     document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-        handleFormSubmit(e, 'FAIpQLSe1r6j6WfrsM0jv_cL-b7sNa1rz-AXUzTNn5mE5m6JSICk', 'entry.672705469', 'notifyEmailAndroid');
+        handleFormSubmit(e, 'FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid');
     });
 
     function handleFormSubmit(e, formId, entryId, inputId) {
@@ -144,47 +144,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Prepare the form data
-        const formData = new FormData();
-        formData.append(entryId, email);
+        // Create a hidden form
+        const form = document.createElement('form');
+        form.action = `https://docs.google.com/forms/d/${formId}/formResponse`;
+        form.method = 'POST';
+        form.target = '_blank';
+        form.style.display = 'none';
 
-        // Create the submission URL
-        const url = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
-        
-        // Submit using fetch with CORS proxy
-        fetch('https://cors-anywhere.herokuapp.com/' + url, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Origin': window.location.origin,
-            },
-        }).catch(() => {
-            // Fallback method using iframe
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.name = 'hidden_iframe';
-            document.body.appendChild(iframe);
-            
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = url;
-            form.target = 'hidden_iframe';
-            
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = entryId;
-            input.value = email;
-            form.appendChild(input);
-            
-            document.body.appendChild(form);
-            form.submit();
-            
-            // Clean up
-            setTimeout(() => {
-                document.body.removeChild(form);
-                document.body.removeChild(iframe);
-            }, 1000);
-        });
+        // Add email input
+        const hiddenInput = document.createElement('input');
+        hiddenInput.name = entryId;
+        hiddenInput.value = email;
+        form.appendChild(hiddenInput);
+
+        // Add to page and submit
+        document.body.appendChild(form);
+        form.submit();
+
+        // Clean up
+        setTimeout(() => {
+            document.body.removeChild(form);
+        }, 1000);
 
         const button = e.target.querySelector('button');
         const originalText = button.textContent;
