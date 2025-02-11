@@ -150,34 +150,30 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = new FormData();
         formData.append(emailFieldId, email);
         
+        // Create URL with parameters
+        const url = new URL(`https://docs.google.com/forms/d/e/${formId}/formResponse`);
+        url.searchParams.append(emailFieldId, email);
+        
         const button = this.querySelector('button');
         const originalText = button.textContent;
         button.textContent = 'Submitting...';
         
-        fetch(`https://docs.google.com/forms/d/${formId}/formResponse`, {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-        })
-        .then(() => {
-            // Success animation
+        // Use iframe for submission to prevent page refresh
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        iframe.src = url.toString();
+        
+        // Handle success
+        setTimeout(() => {
             emailInput.value = '';
             button.classList.add('success');
             button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
+            document.body.removeChild(iframe);
             setTimeout(() => {
                 button.classList.remove('success');
                 button.innerHTML = originalText;
             }, 2000);
-        })
-        .catch(() => {
-            // Same success handling for CORS
-            emailInput.value = '';
-            button.classList.add('success');
-            button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
-            setTimeout(() => {
-                button.classList.remove('success');
-                button.innerHTML = originalText;
-            }, 2000);
-        });
+        }, 1000);
     });
 }); 
