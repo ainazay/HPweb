@@ -958,4 +958,113 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+.notify-container {
+    margin-top: 40px;
+    padding: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.notify-text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+}
+
+.notify-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.notify-form input[type="email"] {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    width: 300px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.notify-form input[type="email"]:focus {
+    outline: none;
+    border-color: #00c6ff;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+}
+
+.notify-form button {
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    min-width: 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.notify-form button:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .notify-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .notify-form input[type="email"] {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+.notify-form input[type="email"].error {
+    border-color: #ff4444;
+    animation: shake 0.5s ease-in-out;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 0.9em;
+    margin-top: 5px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.notify-form button.success {
+    background: linear-gradient(90deg, #00ff9d, #00c08b);
+    transform: scale(1.05);
+}
+
+.success-icon {
+    display: inline-block;
+    margin-right: 5px;
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 } 

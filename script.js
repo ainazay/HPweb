@@ -120,4 +120,64 @@ document.addEventListener('DOMContentLoaded', function() {
             window.scrollTo(0, 0);
         }, 1);
     }
+
+    // Handle email notification form submission
+    document.getElementById('notifyForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('notifyEmail').value;
+        const emailInput = document.getElementById('notifyEmail');
+        
+        // Email validation regex pattern
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!emailPattern.test(email)) {
+            emailInput.classList.add('error');
+            // Add error message
+            const existingError = document.querySelector('.error-message');
+            if (!existingError) {
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'error-message';
+                errorMsg.textContent = 'Please enter a valid email address';
+                emailInput.parentNode.insertBefore(errorMsg, emailInput.nextSibling);
+            }
+            return;
+        }
+        
+        const formId = '1hi_Q7BjqvQOM_VfC573ADDLG6C59JFYNG6doOqLvEaA';
+        const emailFieldId = 'entry.672705469';
+        
+        const formData = new FormData();
+        formData.append(emailFieldId, email);
+        
+        const button = this.querySelector('button');
+        const originalText = button.textContent;
+        button.textContent = 'Submitting...';
+        
+        fetch(`https://docs.google.com/forms/d/${formId}/formResponse`, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        })
+        .then(() => {
+            // Success animation
+            emailInput.value = '';
+            button.classList.add('success');
+            button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
+            setTimeout(() => {
+                button.classList.remove('success');
+                button.innerHTML = originalText;
+            }, 2000);
+        })
+        .catch(() => {
+            // Same success handling for CORS
+            emailInput.value = '';
+            button.classList.add('success');
+            button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
+            setTimeout(() => {
+                button.classList.remove('success');
+                button.innerHTML = originalText;
+            }, 2000);
+        });
+    });
 }); 
