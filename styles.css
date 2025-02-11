@@ -226,6 +226,7 @@ section {
     max-width: 50%;
     padding-right: 40px;
     text-align: left;
+    width: 100%;
 }
 
 .text-content h2 {
@@ -243,7 +244,7 @@ section {
     margin: 10px 0;
     color: white;
     font-weight: bold;
-    max-width: 800px;
+    max-width: 100%;
 }
 
 .text-content ul {
@@ -251,7 +252,7 @@ section {
     padding: 0 20px;
     font-size: 1.6em;
     list-style-position: outside;
-    max-width: 800px;
+    max-width: 100%;
 }
 
 .text-content ul li {
@@ -259,7 +260,8 @@ section {
     margin-bottom: 15px;
     line-height: 1.6;
     color: white;
-    white-space: nowrap;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 .phone {

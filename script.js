@@ -144,32 +144,36 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Create a form element
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
-        form.target = '_blank';
-        form.style.display = 'none';
-
-        // Add the email input
-        const input = document.createElement('input');
-        input.name = entryId;
-        input.value = email;
-        form.appendChild(input);
-
-        // Add submit button
-        const submitBtn = document.createElement('input');
-        submitBtn.type = 'submit';
-        form.appendChild(submitBtn);
-
-        // Add to document and submit
-        document.body.appendChild(form);
-        console.log('Submitting to:', form.action);
-        console.log('With data:', {
-            [entryId]: email
+        // Create a hidden iframe for submission
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        
+        // Create form inside iframe
+        const html = `
+            <form method="POST" action="https://docs.google.com/forms/d/e/${formId}/formResponse">
+                <input name="${entryId}" value="${email}">
+                <input type="submit" name="submit" value="Submit">
+            </form>
+            <script>document.querySelector('form').submit();</script>
+        `;
+        
+        iframe.contentWindow.document.open();
+        iframe.contentWindow.document.write(html);
+        iframe.contentWindow.document.close();
+        
+        // Log submission details
+        console.log('Form submission:', {
+            formId,
+            entryId,
+            email,
+            url: `https://docs.google.com/forms/d/e/${formId}/formResponse`
         });
-        form.submit();
-        document.body.removeChild(form);
+        
+        // Remove iframe after submission
+        setTimeout(() => {
+            document.body.removeChild(iframe);
+        }, 1000);
 
         const button = e.target.querySelector('button');
         const originalText = button.textContent;
