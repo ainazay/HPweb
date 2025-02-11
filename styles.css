@@ -988,7 +988,7 @@ video.ipad {
     width: 800px;
     height: 800px;
     object-fit: cover;
-    background: #000;
+    background: #2e2d41;  /* Slightly lighter black */
     border-radius: 20px;
     overflow: hidden;
 }
