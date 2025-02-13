@@ -1136,4 +1136,10 @@ footer a:hover {
     0% { transform: scale(0); }
     70% { transform: scale(1.2); }
     100% { transform: scale(1); }
+}
+
+.homepage-ipad {
+    border: 2px solid #2e2d41;  /* Change this color to what you want */
+    border-radius: 20px;
+    overflow: hidden;
 } 
