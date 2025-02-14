@@ -128,58 +128,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Android Form Handler
     document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const emailInput = document.getElementById('notifyEmailAndroid');
-        const email = emailInput.value;
-        
-        // Email validation
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            emailInput.classList.add('error');
-            return;
-        }
-        
-        const button = e.target.querySelector('button');
-        const originalText = button.textContent;
-        button.textContent = 'Submitting...';
-
-        // Create hidden iframe
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-
-        // Create form with exact same structure as iOS
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw/formResponse';
-        form.target = 'hidden_frame';
-        form.style.display = 'none';
-
-        const hiddenInput = document.createElement('input');
-        hiddenInput.type = 'hidden';
-        hiddenInput.name = 'entry.672705469';
-        hiddenInput.value = email;
-        form.appendChild(hiddenInput);
-
-        document.body.appendChild(form);
-        form.submit();
-
-        // Show success and cleanup
-        setTimeout(() => {
-            emailInput.value = '';
-            button.classList.add('success');
-            button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
-            document.body.removeChild(form);
-            document.body.removeChild(iframe);
-            setTimeout(() => {
-                button.classList.remove('success');
-                button.innerHTML = originalText;
-            }, 2000);
-        }, 1000);
+        console.log('Android form submitted');
+        handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid', 'Android');
     });
 
     function handleFormSubmit(e, formId, entryId, inputId, platform) {
+        console.log('Handle form submit called for: ' + platform);
+        console.log('Form ID:', formId);
+        console.log('Entry ID:', entryId);
+        console.log('Input ID:', inputId);
+        
         e.preventDefault();
         
         const emailInput = document.getElementById(inputId);
@@ -196,59 +154,43 @@ document.addEventListener('DOMContentLoaded', function() {
         const originalText = button.textContent;
         button.textContent = 'Submitting...';
 
-        try {
-            // Create hidden iframe
-            const iframe = document.createElement('iframe');
-            iframe.name = `hidden_iframe_${Date.now()}`;
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
+        // Create hidden iframe
+        const iframe = document.createElement('iframe');
+        iframe.name = `hidden_iframe_${Date.now()}`;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
 
-            // Create form
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
-            form.target = iframe.name;
-            form.style.display = 'none';
+        // Create form
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
+        form.target = iframe.name;
+        form.style.display = 'none';
 
-            // Add email input
-            const emailField = document.createElement('input');
-            emailField.type = 'hidden';
-            emailField.name = entryId;
-            emailField.value = email;
-            form.appendChild(emailField);
+        // Add email input
+        const emailField = document.createElement('input');
+        emailField.type = 'hidden';
+        emailField.name = entryId;
+        emailField.value = email;
+        form.appendChild(emailField);
 
-            // Add platform input (optional)
-            if (platform) {
-                const platformField = document.createElement('input');
-                platformField.type = 'hidden';
-                platformField.name = 'entry.platform';
-                platformField.value = platform;
-                form.appendChild(platformField);
-            }
+        document.body.appendChild(form);
+        form.submit();
 
-            document.body.appendChild(form);
-            form.submit();
-
-            // Success handling
+        // Success handling
+        setTimeout(() => {
             emailInput.value = '';
             button.classList.add('success');
             button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
-
-            // Cleanup after submission
+            
+            // Cleanup
+            if (document.body.contains(form)) document.body.removeChild(form);
+            if (document.body.contains(iframe)) document.body.removeChild(iframe);
+            
             setTimeout(() => {
-                if (document.body.contains(form)) document.body.removeChild(form);
-                if (document.body.contains(iframe)) document.body.removeChild(iframe);
-                setTimeout(() => {
-                    button.classList.remove('success');
-                    button.innerHTML = originalText;
-                }, 2000);
-            }, 1000);
-        } catch (error) {
-            console.error('Form submission error:', error);
-            button.textContent = 'Please try again';
-            setTimeout(() => {
-                button.textContent = originalText;
+                button.classList.remove('success');
+                button.innerHTML = originalText;
             }, 2000);
-        }
+        }, 1000);
     }
 }); 
