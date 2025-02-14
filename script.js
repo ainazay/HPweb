@@ -128,55 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Android Form Handler
     document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const emailInput = document.getElementById('notifyEmailAndroid');
-        const email = emailInput.value;
-        
-        // Email validation
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            emailInput.classList.add('error');
-            return;
-        }
-        
-        const button = e.target.querySelector('button');
-        const originalText = button.textContent;
-        button.textContent = 'Submitting...';
-
-        // Create hidden iframe
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-
-        // Create form with exact same structure as iOS
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw/formResponse';
-        form.target = 'hidden_frame';
-        form.style.display = 'none';
-
-        const hiddenInput = document.createElement('input');
-        hiddenInput.type = 'hidden';
-        hiddenInput.name = 'entry.672705469';
-        hiddenInput.value = email;
-        form.appendChild(hiddenInput);
-
-        document.body.appendChild(form);
-        form.submit();
-
-        // Show success and cleanup
-        setTimeout(() => {
-            emailInput.value = '';
-            button.classList.add('success');
-            button.innerHTML = '<span class="success-icon">✓</span> Thanks!';
-            document.body.removeChild(form);
-            document.body.removeChild(iframe);
-            setTimeout(() => {
-                button.classList.remove('success');
-                button.innerHTML = originalText;
-            }, 2000);
-        }, 1000);
+        handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid', 'Android');
     });
 
     function handleFormSubmit(e, formId, entryId, inputId, platform) {
