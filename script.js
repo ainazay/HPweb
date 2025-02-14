@@ -127,12 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Android Form Handler
-    // document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-    //     handleFormSubmit(e, '1r6j6WfrsM0jv_cL-b7sNa1rz-AXUzTNn5mE5m6JSICk', 'entry.672705469', 'notifyEmailAndroid', 'Android');
-    // });
-
     document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-            handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid', 'Android');
+        handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid', 'Android');
     });
 
     function handleFormSubmit(e, formId, entryId, inputId, platform) {
