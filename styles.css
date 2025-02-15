@@ -2,7 +2,7 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif; /* Change to a cleaner font */
     margin: 0; /* Ensure no margin */
     padding: 0; /* Ensure no padding */
-    background-color: #000; /* Set background to black */
+    background: linear-gradient(135deg, #1a1f35 0%, #0d0d0d 100%);
     color: #fff; /* Set default text color to white */
     scroll-behavior: smooth; /* Smooth scrolling */
     transition: background-color 0.5s ease; /* Smooth transition for background color */
@@ -169,7 +169,7 @@ section {
 
 .features {
     padding: 60px 20px;
-    background: #000; /* Change to pure black */
+    background: transparent;  /* Let the body gradient show through */
     color: white;
     transition: background 0.5s ease;
     margin: 0;
@@ -216,15 +216,15 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 40px;
+    padding: 40px 0;  /* Remove horizontal padding */
+    background: transparent;  /* Let the body gradient show through */
     max-width: 1800px;
     margin: 0 auto;
-    background: #000000;  /* This matches the color you wanted */
 }
 
 .text-content {
     max-width: 60%;
-    padding-right: 40px;
+    padding-left: 40px;  /* Move padding to the left */
     text-align: left;
 }
 
@@ -269,7 +269,7 @@ section {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     background: #2e2d41;
-    margin-left: 40px;
+    margin-right: 100px;  /* Add right margin to align with features iPad */
 }
 
 .app-screenshot {
