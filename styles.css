@@ -1,11 +1,11 @@
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Change to a cleaner font */
-    margin: 0; /* Ensure no margin */
-    padding: 0; /* Ensure no padding */
-    background: linear-gradient(135deg, #1a2f4c 0%, #0d0d0d 100%);  /* More visible blue gradient */
-    color: #fff; /* Set default text color to white */
-    scroll-behavior: smooth; /* Smooth scrolling */
-    transition: background-color 0.5s ease; /* Smooth transition for background color */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #000046 0%, #1cb5e0 100%);
+    color: white;
+    scroll-behavior: smooth;
+    transition: background-color 0.5s ease;
     width: 100%;
     overflow-x: hidden;
 }
@@ -20,10 +20,10 @@ body {
 }
 
 header {
-    background: #000; /* Set a solid background color to match the body */
-    box-shadow: none; /* Remove shadow */
-    padding: 0; /* Remove padding */
-    text-align: left; /* Left-align the header content */
+    background: transparent;  /* Make nav match gradient */
+    box-shadow: none;
+    padding: 0;
+    text-align: left;
     width: 100%;
 }
 
@@ -39,53 +39,52 @@ nav {
 }
 
 nav a {
-    display: flex; /* Use flexbox for logo and title */
-    align-items: center; /* Center items vertically */
-    text-decoration: none; /* Remove underline */
-    color: white; /* Set text color to white */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
     padding: 0 10px;
     margin: 0;
 }
 
 nav h1 {
-    font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
-    color: transparent; /* Make text transparent to show gradient */
-    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient effect */
-    -webkit-background-clip: text; /* Clip background to text */
-    font-size: 3em; /* Adjust title size */
-    margin: 0 10px; /* Add margin for spacing */
+    font-family: 'Montserrat', sans-serif;
+    color: transparent;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    font-size: 3em;
+    margin: 0 10px;
 }
 
 nav ul {
-    list-style: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    display: flex; /* Use flexbox for layout */
-    margin: 0; /* Remove margin */
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
 }
 
 nav ul li {
-    margin: 0 25px; /* Increase space between items */
+    margin: 0 25px;
 }
 
 nav ul li a {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Apple font */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 1.4em;
     font-weight: bold;
     color: white;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
     padding: 10px 20px;
-    border: none; /* Remove border */
-    background: none; /* Remove background */
-    transition: none; /* Remove transition effects */
+    border: none;
+    background: none;
+    transition: none;
 }
 
 nav ul li a:hover {
-    /* Remove hover effects */
 }
 
 nav a:hover {
-    background-color: rgba(173, 216, 230, 0.5); /* Change background on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color: rgba(173, 216, 230, 0.5);
+    transform: scale(1.05);
 }
 
 .hero {
@@ -96,7 +95,7 @@ nav a:hover {
     align-items: center;
     text-align: center;
     color: white;
-    background: transparent;  /* Let the gradient show through */
+    background: transparent;
     padding: 20px 10px;
     margin: 0;
 }
@@ -118,30 +117,26 @@ nav a:hover {
 
 .cta-button {
     display: inline-block;
-    margin-top: 20px; /* Space above the button */
+    margin-top: 20px;
     padding: 15px 30px;
-    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient background */
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
     color: white;
     text-decoration: none;
-    border-radius: 50px; /* Rounded button */
+    border-radius: 50px;
     font-size: 1.2em;
-    transition: background 0.3s, transform 0.3s; /* Transition for hover effect */
+    transition: background 0.3s, transform 0.3s;
 }
 
 .cta-button:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05);
 }
 
 section {
-    padding: 60px 20px;
-    margin: 20px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1); /* Light background for sections */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
-    animation: fadeIn 0.5s ease-in-out; /* Fade-in effect for sections */
+    padding: 60px 0;
     margin: 0;
-    padding: 20px 10px;
-    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .hero-image {
@@ -169,7 +164,7 @@ section {
 
 .features {
     padding: 60px 20px;
-    background: transparent;  /* Let the body gradient show through */
+    background: transparent;
     color: white;
     transition: background 0.5s ease;
     margin: 0;
@@ -177,9 +172,9 @@ section {
 }
 
 .features-heading {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Apple font */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 2em !important;
-    color: white; /* Set color to white */
+    color: white;
     margin: 0 0 20px 0;
     text-align: center;
 }
@@ -203,12 +198,12 @@ section {
 }
 
 .feature h3, .feature p {
-    margin: 0; /* Remove default margins */
-    color: white; /* Set text color to white */
+    margin: 0;
+    color: white;
     font-size: 1.4em !important;
-    opacity: 1; /* Ensure text is visible */
-    transform: translateY(0); /* Reset transform */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
     margin-bottom: 10px;
 }
 
@@ -217,14 +212,14 @@ section {
     justify-content: space-between;
     align-items: flex-start;
     padding: 40px 0;
-    max-width: 1200px;  /* Match the feature container width */
+    max-width: 1200px;
     margin: 0 auto;
     background: transparent;
 }
 
 .text-content {
     max-width: 60%;
-    padding-left: 40px;  /* Move padding to the left */
+    padding-left: 40px;
     text-align: left;
 }
 
@@ -269,7 +264,7 @@ section {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     background: #2e2d41;
-    margin-left: auto;  /* Push to the right side of container */
+    margin-left: auto;
 }
 
 .app-screenshot {
@@ -292,7 +287,7 @@ section {
 }
 
 html {
-    scroll-behavior: smooth; /* Enable smooth scrolling */
+    scroll-behavior: smooth;
 }
 
 .logo {
@@ -309,208 +304,202 @@ html {
 }
 
 .intro {
-    text-align: center; /* Center the text */
+    text-align: center;
     padding: 40px 20px;
-    color: black; /* Change text color to black */
-    max-width: 800px; /* Set a maximum width for the text */
-    margin: 0 auto; /* Center the section */
+    color: black;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .intro-header {
     display: flex;
-    justify-content: center; /* Center the logo and title */
-    align-items: center; /* Align items vertically */
+    justify-content: center;
+    align-items: center;
 }
 
 .intro h1 {
-    margin-left: 10px; /* Space between logo and title */
-    color: black; /* Set title color to black */
+    margin-left: 10px;
+    color: black;
 }
 
 .intro-tagline {
-    font-size: 1.5em; /* Adjust size as needed */
-    margin: 10px 0; /* Add spacing */
+    font-size: 1.5em;
+    margin: 10px 0;
 }
 
 .intro-description,
 .intro-details {
-    font-size: 1.2em; /* Adjust size as needed */
-    margin: 10px 0; /* Add spacing */
+    font-size: 1.2em;
+    margin: 10px 0;
 }
 
 .intro-tagline,
 .intro-description,
 .intro-details {
-    color: black; /* Ensure these texts are black */
+    color: black;
 }
 
 #download {
-    text-align: center; /* Center the text */
+    text-align: center;
     padding: 40px 20px;
-    color: white; /* Change text color to white */
+    color: white;
 }
 
 #features h2,
 #download h2,
 nav ul li a {
-    color: black; /* Set text color to black */
+    color: black;
     color: #ddd;
 }
 
 nav ul li a {
-    color: white; /* Set text color to white for header links */
+    color: white;
 }
 
 #contact {
     padding: 40px 20px;
-    background: rgba(173, 216, 230, 0.5); /* Light blue background for contact section */
-    border-radius: 10px; /* Rounded corners */
-    margin: 20px; /* Margin around the section */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    background: rgba(173, 216, 230, 0.5);
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form {
     display: flex;
-    flex-direction: column; /* Stack form elements vertically */
-    max-width: 600px; /* Limit width of the form */
-    margin: 0 auto; /* Center the form */
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-form div {
-    margin-bottom: 15px; /* Space between form elements */
+    margin-bottom: 15px;
 }
 
 .contact-form label {
-    margin-bottom: 5px; /* Space between label and input */
-    font-weight: bold; /* Make labels bold */
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 10px; /* Padding for inputs */
-    border: 1px solid #ccc; /* Border for inputs */
-    border-radius: 5px; /* Rounded corners for inputs */
-    width: 100%; /* Full width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .contact-form button {
-    padding: 10px; /* Padding for button */
-    background: #28a745; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners for button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background 0.3s; /* Transition for hover effect */
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .contact-form button:hover {
-    background: #218838; /* Darker green on hover */
+    background: #218838;
 }
 
 .download-image {
-    width: auto; /* Set width to auto for proper scaling */
-    height: 60px; /* Set a fixed height for the button */
-    margin-top: 20px; /* Space above the image */
-    cursor: pointer; /* Pointer cursor on hover */
-    border: none; /* Ensure no border */
-    transition: transform 0.3s; /* Transition for hover effect */
-    display: inline-block; /* Ensure it behaves like a button */
-    background: none; /* Remove any background */
+    width: auto;
+    height: 60px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s;
+    display: inline-block;
+    background: none;
 }
 
 .download-image:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05);
 }
 
 h2, h3 {
-    color: #fff; /* Set headings to white */
+    color: #fff;
 }
 
 p {
-    color: #fff; /* Set paragraph text to white */
+    color: #fff;
 }
 
-/* Animation for fading in */
 .fade-in {
-    /* Remove all properties */
 }
 
 .fade-in.visible {
-    /* Remove all properties */
 }
 
 .new-title {
-    color: transparent; /* Make text transparent to show gradient */
-    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradient effect */
-    -webkit-background-clip: text; /* Clip background to text */
+    color: transparent;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
     font-size: 2.5em !important;
     margin: 0;
     text-align: center;
 }
 
-/* Styles for the iPad in the Features Section */
 .feature-container .ipad {
-    width: 600px; /* Increase width for better visibility */
-    height: 800px; /* Increase height for better visibility */
-    border: none; /* Remove border */
-    border-radius: 20px; /* Rounded corners for the iPad */
-    overflow: hidden; /* Hide overflow */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
-    background: white; /* White background for the iPad */
+    width: 600px;
+    height: 800px;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: white;
 }
 
-/* Styles for the iPad in the Hero Section */
 .phone {
-    width: 400px; /* Adjust width of the iPad mockup */
-    height: 600px; /* Adjust height of the iPad mockup */
-    border: 16px solid #2e2d41; /* Black border for the iPad */
-    border-radius: 20px; /* Rounded corners for iPad */
-    overflow: hidden; /* Hide overflow */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
-    background: #2e2d41; /* White background for the iPad */
+    width: 400px;
+    height: 600px;
+    border: 16px solid #2e2d41;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: #2e2d41;
 }
 
 .typeform-embed {
-    max-width: 600px; /* Limit the width of the form */
-    margin: 0 auto; /* Center the form */
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .centered {
-    display: block; /* Make it a block element */
-    text-align: center; /* Center the text */
+    display: block;
+    text-align: center;
 }
 
 .download-section {
-    padding: 80px 20px; /* Increase padding for a larger section */
-    text-align: center; /* Center the text */
-    background: rgba(0, 0, 0, 0.8); /* Dark background for contrast */
-    color: white; /* Set text color to white */
-    border-radius: 10px; /* Rounded corners */
-    margin: 20px; /* Margin around the section */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+    padding: 80px 20px;
+    text-align: center;
+    background: transparent;
+    color: white;
+    margin: 0;
+    box-shadow: none;
 }
 
 .download-heading {
-    font-size: 3em; /* Increase heading size */
-    margin-bottom: 10px; /* Space below the heading */
+    font-size: 3em;
+    margin-bottom: 10px;
 }
 
 .download-subtitle {
-    font-size: 1.5em; /* Adjust subtitle size */
-    margin-bottom: 20px; /* Space below the subtitle */
+    font-size: 1.5em;
+    margin-bottom: 20px;
 }
 
 .download-image {
-    width: 200px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-top: 20px; /* Space above the image */
-    cursor: pointer; /* Pointer cursor on hover */
-    border: none; /* Remove border */
-    transition: transform 0.3s; /* Transition for hover effect */
+    width: 200px;
+    height: auto;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s;
 }
 
 .download-image:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05);
 }
 
 .handwritten {
@@ -524,23 +513,22 @@ p {
 
 @keyframes typing {
     from {
-        width: 0; /* Start with no width */
+        width: 0;
     }
     to {
-        width: 100%; /* End with full width */
+        width: 100%;
     }
 }
 
 @keyframes blink-caret {
     from, to {
-        border-color: transparent; /* Hide the cursor */
+        border-color: transparent;
     }
     50% {
-        border-color: white; /* Show the cursor */
+        border-color: white;
     }
 }
 
-/* Terms of Service Page Styles */
 .terms-content {
     max-width: 800px;
     margin: 0 auto;
@@ -673,9 +661,7 @@ main a:hover {
     transform: scale(1.05);
 }
 
-/* Mobile-friendly styles */
 @media screen and (max-width: 768px) {
-    /* Navigation */
     header {
         width: 100%;
         padding: 10px;
@@ -706,7 +692,6 @@ main a:hover {
         white-space: nowrap;
     }
 
-    /* Hero section */
     .hero {
         padding: 20px 10px;
         height: auto;
@@ -724,7 +709,6 @@ main a:hover {
         width: auto;
     }
 
-    /* Phone container section */
     .phone-container {
         flex-direction: column;
         width: 90%;
@@ -779,7 +763,6 @@ main a:hover {
         object-fit: cover;
     }
 
-    /* Features section */
     .features {
         margin: 0;
         padding: 20px 10px;
@@ -830,7 +813,6 @@ main a:hover {
         display: block;
     }
 
-    /* Download section */
     .download-section {
         margin: 0;
         padding: 30px 10px;
@@ -850,7 +832,6 @@ main a:hover {
         display: none;
     }
 
-    /* Footer */
     footer {
         margin: 0;
         padding: 20px 10px;
@@ -862,7 +843,6 @@ main a:hover {
         line-height: 1.5;
     }
 
-    /* Phone display */
     .phone {
         width: 280px;
         height: 420px;
@@ -949,7 +929,6 @@ main a:hover {
     }
 }
 
-/* Fix for all screen sizes */
 * {
     box-sizing: border-box;
     -webkit-text-size-adjust: 100%;
@@ -976,7 +955,7 @@ video.ipad {
     width: 800px;
     height: 800px;
     object-fit: cover;
-    border: 2px solid #2e2d41;  /* This will change just the border */
+    border: 2px solid #2e2d41;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -1008,8 +987,7 @@ footer a:hover {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    background: rgba(20, 20, 20, 0.4);
-    border-radius: 10px;
+    background: transparent;
 }
 
 .notify-options {
