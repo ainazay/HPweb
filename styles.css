@@ -264,32 +264,20 @@ section {
 .phone {
     width: 400px;
     height: 600px;
-    border: 16px solid #000;
+    border: 16px solid #2e2d41;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    background: white;
+    background: #2e2d41;
     margin-left: 40px;
 }
 
-/* Adjust notch effect if needed */
-.phone::before {
-    content: '';
-    position: absolute;
-    top: -16px; /* Position it above the iPad */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px; /* Width of the notch */
-    height: 20px; /* Height of the notch */
-    background: white; /* Color of the notch */
-    border-radius: 10px; /* Rounded corners for the notch */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for the notch */
-}
-
 .app-screenshot {
-    width: 100%; /* Ensure it takes the full width of the phone */
-    height: 100%; /* Set height to fill the phone */
-    object-fit: cover; /* Cover the area of the phone */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 @keyframes slideIn {
@@ -475,11 +463,11 @@ p {
 .phone {
     width: 400px; /* Adjust width of the iPad mockup */
     height: 600px; /* Adjust height of the iPad mockup */
-    border: 16px solid #000; /* Black border for the iPad */
+    border: 16px solid #2e2d41; /* Black border for the iPad */
     border-radius: 20px; /* Rounded corners for iPad */
     overflow: hidden; /* Hide overflow */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for the iPad */
-    background: white; /* White background for the iPad */
+    background: #2e2d41; /* White background for the iPad */
 }
 
 .typeform-embed {
@@ -1136,10 +1124,4 @@ footer a:hover {
     0% { transform: scale(0); }
     70% { transform: scale(1.2); }
     100% { transform: scale(1); }
-}
-
-.homepage-ipad {
-    border: 2px solid #2e2d41;  /* Change this color to what you want */
-    border-radius: 20px;
-    overflow: hidden;
 } 
