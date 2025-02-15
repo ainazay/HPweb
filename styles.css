@@ -2,7 +2,7 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif; /* Change to a cleaner font */
     margin: 0; /* Ensure no margin */
     padding: 0; /* Ensure no padding */
-    background: linear-gradient(135deg, #1a1f35 0%, #0d0d0d 100%);
+    background: linear-gradient(135deg, #1a2f4c 0%, #0d0d0d 100%);  /* More visible blue gradient */
     color: #fff; /* Set default text color to white */
     scroll-behavior: smooth; /* Smooth scrolling */
     transition: background-color 0.5s ease; /* Smooth transition for background color */
@@ -96,7 +96,7 @@ nav a:hover {
     align-items: center;
     text-align: center;
     color: white;
-    background: #000;
+    background: transparent;  /* Let the gradient show through */
     padding: 20px 10px;
     margin: 0;
 }
@@ -216,10 +216,10 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 40px 0;  /* Remove horizontal padding */
-    background: transparent;  /* Let the body gradient show through */
-    max-width: 1800px;
+    padding: 40px 0;
+    max-width: 1200px;  /* Match the feature container width */
     margin: 0 auto;
+    background: transparent;
 }
 
 .text-content {
@@ -269,7 +269,7 @@ section {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     background: #2e2d41;
-    margin-right: 100px;  /* Add right margin to align with features iPad */
+    margin-left: auto;  /* Push to the right side of container */
 }
 
 .app-screenshot {
