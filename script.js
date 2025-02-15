@@ -126,11 +126,34 @@ document.addEventListener('DOMContentLoaded', function() {
         handleFormSubmit(e, '1FAIpQLSd9XsWCdENYYMrF598lU0cyfjXOx-Rks1M1x9gXqj7atiR_EQ', 'entry.672705469', 'notifyEmailIOS', 'iOS');
     });
 
-    // Android Form Handler
+    // Android Form Handler (modified to match iOS structure exactly)
     document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-        console.log('Android form submitted');
+        // Using same handleFormSubmit function with Android parameters
         handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid', 'Android');
     });
+
+    // Let's also add a direct test function
+    function testAndroidSubmission() {
+        const testEmail = 'test@example.com';
+        const formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw/formResponse?${entryId}=${testEmail}`;
+        
+        fetch(formUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+        .then(response => {
+            console.log('Test submission completed');
+        })
+        .catch(error => {
+            console.error('Test submission error:', error);
+        });
+    }
+
+    // Call this from browser console to test
+    // testAndroidSubmission();
 
     function handleFormSubmit(e, formId, entryId, inputId, platform) {
         console.log('Handle form submit called for: ' + platform);
