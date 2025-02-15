@@ -2,7 +2,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #000046 0%, #1cb5e0 100%);
+    background: linear-gradient(135deg, #000428 0%, #004e92 100%);  /* Frost gradient */
     color: white;
     scroll-behavior: smooth;
     transition: background-color 0.5s ease;
@@ -259,11 +259,11 @@ section {
 .phone {
     width: 400px;
     height: 600px;
-    border: 16px solid #2e2d41;
+    border: 16px solid #000000;  /* Change to pure black */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    background: #2e2d41;
+    background: #000000;  /* Change background to match border */
     margin-left: auto;
 }
 
@@ -448,16 +448,6 @@ p {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     background: white;
-}
-
-.phone {
-    width: 400px;
-    height: 600px;
-    border: 16px solid #2e2d41;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    background: #2e2d41;
 }
 
 .typeform-embed {
