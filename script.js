@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Contact Form Handler
-    if (document.getElementById('contactForm')) {  // Only run on pages with contact form
+    if (document.getElementById('contactForm')) {
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -243,14 +243,14 @@ document.addEventListener('DOMContentLoaded', function() {
             form.target = iframe.name;
             form.style.display = 'none';
             
-            // Add fields
+            // Add fields with correct entry IDs
             const nameField = document.createElement('input');
             nameField.name = 'entry.82358068';  // Name field entry ID
             nameField.value = name;
             form.appendChild(nameField);
             
             const emailField = document.createElement('input');
-            emailField.name = 'emailAddress';  // This is the standard field name for email
+            emailField.name = 'emailAddress';
             emailField.value = email;
             form.appendChild(emailField);
             
