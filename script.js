@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add fields
         const nameField = document.createElement('input');
-        nameField.name = 'entry.89955378';  // Name field entry ID
+        nameField.name = 'entry.82358068';  // Name field entry ID
         nameField.value = name;
         form.appendChild(nameField);
         
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
         form.appendChild(emailField);
         
         const messageField = document.createElement('input');
-        messageField.name = 'entry.82358068';  // Message field entry ID
+        messageField.name = 'entry.89955378';  // Message field entry ID
         messageField.value = message;
         form.appendChild(messageField);
         
