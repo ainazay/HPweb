@@ -216,4 +216,66 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 2000);
         }, 1000);
     }
+
+    // Contact Form Handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        const button = e.target.querySelector('button');
+        const originalText = button.textContent;
+        button.textContent = 'Sending...';
+        
+        // Create hidden iframe
+        const iframe = document.createElement('iframe');
+        iframe.name = `hidden_iframe_${Date.now()}`;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        
+        // Create form
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://docs.google.com/forms/d/e/1FAIpQLScRvoytBbz49L0UuUm-Egtw_FIoqHSSSnw2OkC6cDnOMXdO7w/formResponse';
+        form.target = iframe.name;
+        form.style.display = 'none';
+        
+        // Add fields
+        const nameField = document.createElement('input');
+        nameField.name = 'entry.89955378';  // Name field entry ID
+        nameField.value = name;
+        form.appendChild(nameField);
+        
+        const emailField = document.createElement('input');
+        emailField.name = 'emailAddress';  // This is the standard field name for email
+        emailField.value = email;
+        form.appendChild(emailField);
+        
+        const messageField = document.createElement('input');
+        messageField.name = 'entry.82358068';  // Message field entry ID
+        messageField.value = message;
+        form.appendChild(messageField);
+        
+        document.body.appendChild(form);
+        form.submit();
+        
+        // Success handling
+        setTimeout(() => {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+            button.classList.add('success');
+            button.innerHTML = '<span class="success-icon">✓</span> Message Sent!';
+            
+            if (document.body.contains(form)) document.body.removeChild(form);
+            if (document.body.contains(iframe)) document.body.removeChild(iframe);
+            
+            setTimeout(() => {
+                button.classList.remove('success');
+                button.innerHTML = originalText;
+            }, 2000);
+        }, 1000);
+    });
 }); 
