@@ -78,15 +78,15 @@ nav ul li a {
     padding: 10px 20px;
     border: none;
     background: none;
-    transition: none;
+    transition: opacity 0.3s ease;
 }
 
 nav ul li a:hover {
+    opacity: 0.7;
 }
 
 nav a:hover {
-    background-color: rgba(173, 216, 230, 0.5);
-    transform: scale(1.05);
+    opacity: 0.7;
 }
 
 .hero {
@@ -462,6 +462,7 @@ p {
     font-size: 2.5em !important;
     margin: 0;
     text-align: center;
+    transition: opacity 0.3s ease;
 }
 
 .feature-container .ipad {
@@ -805,35 +806,40 @@ main a:hover {
     .ipad-container {
         width: 100%;
         height: auto;
-        margin: 20px;
         padding: 20px;
         box-sizing: border-box;
+        display: flex;
+        justify-content: center;
     }
 
     video.ipad {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        width: 90%;  /* Slightly smaller to show full video */
+        height: auto;
+        aspect-ratio: 1/1;
+        object-fit: contain;  /* Show full video without cropping */
         border-radius: 20px;
         pointer-events: none;
         touch-action: none;
         -webkit-touch-callout: none;
         -webkit-tap-highlight-color: transparent;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
         user-select: none;
-        user-drag: none;
+        -webkit-user-select: none;
         -webkit-user-drag: none;
-        -webkit-user-modify: none;
-        -webkit-highlight: none;
-        playsinline: true;
-        webkit-playsinline: true;
-        disablepictureinpicture: true;
-        x-webkit-airplay: deny;
-        controlslist: "nodownload nofullscreen noremoteplayback";
-        border: 2px solid #2e2d41;
-        margin: 0;
+        transform: scale(0.9);  /* Zoom out slightly */
+        margin: 0 auto;
+        display: block;
+        background: transparent;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    /* Hide video controls and play button */
+    video.ipad::-webkit-media-controls {
+        display: none !important;
+    }
+    
+    video.ipad::-webkit-media-controls-start-playback-button {
+        display: none !important;
     }
 
     .download-section {
@@ -1188,4 +1194,8 @@ main,
     min-height: 100vh;
     background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
     background-attachment: fixed;
+}
+
+nav a:hover .new-title {
+    opacity: 0.7;
 } 
