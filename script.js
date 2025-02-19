@@ -1,5 +1,5 @@
 // This is a placeholder for any JavaScript functionality you might want to add
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', function() {
     console.log('Document loaded. You can add interactivity here.');
 
     const features = document.querySelectorAll('.fade-in');
@@ -124,7 +124,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if we're on the contact page
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        console.log('Contact form found, initializing handler');
         contactForm.addEventListener('submit', handleContactSubmit);
+        
+        // Add a test listener to verify the form is being caught
+        contactForm.addEventListener('submit', function(e) {
+            console.log('Form submitted');
+        });
     }
 
     // Check if we're on the main page with notify forms
@@ -144,11 +150,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Move contact form handler to a separate function
     function handleContactSubmit(e) {
+        console.log('Handle contact submit called');
         e.preventDefault();
         
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
+        
+        console.log('Form values:', { name, email, message });
         
         const button = e.target.querySelector('button');
         const originalText = button.textContent;
@@ -169,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add fields
         const nameField = document.createElement('input');
-        nameField.name = 'entry.89955378';
+        nameField.name = 'entry.82358068';
         nameField.value = name;
         form.appendChild(nameField);
         
@@ -179,8 +188,8 @@ document.addEventListener('DOMContentLoaded', function() {
         form.appendChild(emailField);
         
         const messageField = document.createElement('input');
-        messageField.name = 'entry.82358068';
-      
+        messageField.name = 'entry.89955378';
+        
         messageField.value = message;
         form.appendChild(messageField);
         
