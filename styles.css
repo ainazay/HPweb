@@ -2,7 +2,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #141e30 0%, #243b55 100%);  /* Royal gradient */
+    background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);  /* Sea Blue gradient */
     background-attachment: fixed;  /* This ensures gradient stays consistent */
     min-height: 100vh;  /* Ensures gradient covers full height */
     color: white;
@@ -289,7 +289,11 @@ section {
 }
 
 html {
-    scroll-behavior: smooth;
+    background: #2b5876;  /* Match first gradient color */
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
 }
 
 .logo {
@@ -1135,4 +1139,13 @@ footer a:hover {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     backdrop-filter: blur(10px);
+}
+
+/* Ensure content fills viewport */
+#root, 
+main, 
+.app {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+    background-attachment: fixed;
 } 
