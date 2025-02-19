@@ -121,16 +121,88 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1);
     }
 
-    // iOS Form Handler
-    document.getElementById('notifyFormIOS').addEventListener('submit', function(e) {
-        handleFormSubmit(e, '1FAIpQLSd9XsWCdENYYMrF598lU0cyfjXOx-Rks1M1x9gXqj7atiR_EQ', 'entry.672705469', 'notifyEmailIOS', 'iOS');
-    });
+    // Check if we're on the contact page
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactSubmit);
+    }
 
-    // Android Form Handler (modified to match iOS structure exactly)
-    document.getElementById('notifyFormAndroid').addEventListener('submit', function(e) {
-        // Using same handleFormSubmit function with Android parameters
-        handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid', 'Android');
-    });
+    // Check if we're on the main page with notify forms
+    const notifyFormIOS = document.getElementById('notifyFormIOS');
+    if (notifyFormIOS) {
+        notifyFormIOS.addEventListener('submit', function(e) {
+            handleFormSubmit(e, '1FAIpQLSd9XsWCdENYYMrF598lU0cyfjXOx-Rks1M1x9gXqj7atiR_EQ', 'entry.672705469', 'notifyEmailIOS', 'iOS');
+        });
+    }
+
+    const notifyFormAndroid = document.getElementById('notifyFormAndroid');
+    if (notifyFormAndroid) {
+        notifyFormAndroid.addEventListener('submit', function(e) {
+            handleFormSubmit(e, '1FAIpQLSeRrMEs0CC0DMZDalbdwfBiDApIqTw0vxuOSFH_EZAt1fQaqw', 'entry.672705469', 'notifyEmailAndroid', 'Android');
+        });
+    }
+
+    // Move contact form handler to a separate function
+    function handleContactSubmit(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        const button = e.target.querySelector('button');
+        const originalText = button.textContent;
+        button.textContent = 'Sending...';
+        
+        // Create hidden iframe
+        const iframe = document.createElement('iframe');
+        iframe.name = `hidden_iframe_${Date.now()}`;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        
+        // Create form
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://docs.google.com/forms/d/e/1FAIpQLScRvoytBbz49L0UuUm-Egtw_FIoqHSSSnw2OkC6cDnOMXdO7w/formResponse';
+        form.target = iframe.name;
+        form.style.display = 'none';
+        
+        // Add fields
+        const nameField = document.createElement('input');
+        nameField.name = 'entry.82358068';
+        nameField.value = name;
+        form.appendChild(nameField);
+        
+        const emailField = document.createElement('input');
+        emailField.name = 'emailAddress';
+        emailField.value = email;
+        form.appendChild(emailField);
+        
+        const messageField = document.createElement('input');
+        messageField.name = 'entry.89955378';
+        messageField.value = message;
+        form.appendChild(messageField);
+        
+        document.body.appendChild(form);
+        form.submit();
+        
+        // Success handling
+        setTimeout(() => {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+            button.classList.add('success');
+            button.innerHTML = '<span class="success-icon">✓</span> Message Sent!';
+            
+            if (document.body.contains(form)) document.body.removeChild(form);
+            if (document.body.contains(iframe)) document.body.removeChild(iframe);
+            
+            setTimeout(() => {
+                button.classList.remove('success');
+                button.innerHTML = originalText;
+            }, 2000);
+        }, 1000);
+    }
 
     // Let's also add a direct test function
     function testAndroidSubmission() {
@@ -216,67 +288,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 2000);
         }, 1000);
     }
-
-    // Contact Form Handler
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        const button = e.target.querySelector('button');
-        const originalText = button.textContent;
-        button.textContent = 'Sending...';
-        
-        // Create hidden iframe
-        const iframe = document.createElement('iframe');
-        iframe.name = `hidden_iframe_${Date.now()}`;
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        
-        // Create form
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = 'https://docs.google.com/forms/d/e/1FAIpQLScRvoytBbz49L0UuUm-Egtw_FIoqHSSSnw2OkC6cDnOMXdO7w/formResponse';
-        form.target = iframe.name;
-        form.style.display = 'none';
-        
-        // Add fields
-        const nameField = document.createElement('input');
-        nameField.name = 'entry.82358068';
-          // Name field entry ID
-        nameField.value = name;
-        form.appendChild(nameField);
-        
-        const emailField = document.createElement('input');
-        emailField.name = 'emailAddress';  // This is the standard field name for email
-        emailField.value = email;
-        form.appendChild(emailField);
-        
-        const messageField = document.createElement('input');
-        messageField.name = 'entry.89955378';  // Message field entry ID
-        messageField.value = message;
-        form.appendChild(messageField);
-        
-        document.body.appendChild(form);
-        form.submit();
-        
-        // Success handling
-        setTimeout(() => {
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('message').value = '';
-            button.classList.add('success');
-            button.innerHTML = '<span class="success-icon">✓</span> Message Sent!';
-            
-            if (document.body.contains(form)) document.body.removeChild(form);
-            if (document.body.contains(iframe)) document.body.removeChild(iframe);
-            
-            setTimeout(() => {
-                button.classList.remove('success');
-                button.innerHTML = originalText;
-            }, 2000);
-        }, 1000);
-    });
 }); 
